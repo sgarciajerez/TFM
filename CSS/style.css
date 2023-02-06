@@ -1,0 +1,65 @@
+*{
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.home_selector{
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr 50px;
+    grid-template-areas:
+    ". fecha desde hasta ."
+    ;
+    margin: 0 50px;
+    margin-top: 400px;   
+    border: solid 2px black;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+.home_selector .fecha{
+    width: 300px;
+    grid-area: fecha;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.home_selector .fecha label{
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+.home_selector .desde{
+    width: 300px;
+    grid-area: desde;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.home_selector .desde label{
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+.home_selector .hasta{
+    width: 300px;
+    grid-area: hasta;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.home_selector .hasta label{
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+}
