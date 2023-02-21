@@ -5,26 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Images/logoParaTittle.png" type="image/x-icon">
     <title>Nombre APP</title>
 </head>
 <body>
-    <div class="home_selector">
-        <div class="fecha">
-            <label for="date">Fecha</label>
-            <input type="date" id="date" name="trip-start">
+    <nav class="menu" id="menu">
+        <div id="menu_abierto">
+            <ul>
+                <li><a href="index.html"><span class="icon-home"></span> Inicio</a></li>
+                <li><a href="lineas_bus.html"><span class="icon-leaf"></span>Buses Disponibles</a></li>
+                <li class="menu_derecha"><a href="acceso.html" class="menu_derecha"><span class="icon-spoon-knife"></span>Accede a tu usuario</a></li>
+            </ul>
         </div>
-        <div class="desde">
-            <label for="selector_desde">¿Desde dónde saldrás?</label>
-            <select name="selector_desde" id="selector_desde">
-                <option value="1">1</option>
-            </select>
+        <div id="menu_close">
+            <div class="menu_desplegable" id="menu_abre">
+                <div class="menu_desplegable_lineas"></div>
+                <div class="menu_desplegable_lineas"></div>
+                <div class="menu_desplegable_lineas"></div>
+            </div>
+            <img onclick="document.getElementById('inicio').scrollIntoView({ behavior: 'smooth', block: 'center'});" src="Images/LuisaHerediaMenu.jpg" alt="logotipo de Dietista y Nutricionista">
         </div>
-        <div class="hasta">
-            <label for="selector_hasta">¿Hacia dónde vas?</label>
-            <select name="selector_hasta" id="selector_hasta">
-                <option value="provincia1">1</option>
-            </select>
-        </div>       
-    </div>
+        <div id="menu_open">
+            <div class="menu_desplegable" id="menu_cierra">
+                <div class="menu_desplegable_lineas" id="linea1"></div>
+                <div class="menu_desplegable_lineas" id="linea2"></div>
+            </div>
+            <ul>
+                <li><a href="index.html"><span class="icon-home"></span> Inicio</a></li>
+                <li><a href="lineas_bus.html"><span class="icon-leaf"></span>Buses Disponobles</a></li>
+                <li><a href="acceso.html"><span class="icon-spoon-knife"></span>Accede a tu usuario</a></li>
+            </ul>
+        </div>
+    </nav>
+    <aside class="home_container">
+        <div class="home_selector">
+            <section class="selector">
+                <div class="fecha">
+                    <label for="date">Fecha</label>
+                    <input class="home_cuadro" type="date" id="date" name="trip-start">
+                </div>
+                <div class="desde">
+                    <label for="selector_desde">¿Desde dónde saldrás?</label>
+                    <select class="home_cuadro" name="selector_desde" id="selector_desde">
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <div class="hasta">
+                    <label for="selector_hasta">¿Hacia dónde vas?</label>
+                    <select class="home_cuadro" name="selector_hasta" id="selector_hasta">
+                        <option value="provincia1">1</option>
+                    </select>
+                </div> 
+            </section>
+        </div>
+        <button class="home_container_boton">Buscar</button>
+    </aside>
+    <footer>
+    </footer>
+    <script>
+        AOS.init({
+            duration:1000,
+            once:true
+        });
+    </script>
 </body>
 </html>

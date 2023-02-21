@@ -1,27 +1,180 @@
-*{
-    font-family: monospace;
-    font-size: 16px;
+:root{
+    --color-azul: #008489;
+    --color-gris-oscuro: #767676;
+    --color-rojo: #FF5A5F;
+    --color-gris-claro: #F7F7F7;
+    --color-blanco: #FFFFFF;
+    --color-gris-claro-difuminado: rgba(247, 247, 247, 0.3);
+
 }
 
+*{
+    outline: none;
+    text-decoration: none;
+    font-family: 'Montserrat','Verdana',sans-serif;
+}
+
+body{
+    font-size: 16px;
+    background-image: url(../media/home_fondo.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+/* ESTILOS MENU */
+
+.menu{
+    width: 100%;
+    z-index: 500;
+    position: fixed;
+    margin: 0 auto;
+    top:0;
+    right: 0;
+}
+
+#menu_abierto ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+#menu_abierto ul a{
+    color: var(--color-blanco);
+    font-weight: bold;
+    padding: 0.9375em 1.5em;
+    margin: auto;
+    outline: none;
+}
+
+#menu_abierto ul li{
+    list-style: none;
+    outline: none;
+}
+
+#menu_abierto ul a:hover{
+    background-color: var(--color-azul);
+    transition: all ease-in 0.2s;
+}
+
+#menu_close{
+    display: none;
+}
+
+.menu_desplegable{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 0.625em;
+    padding: 0.125em 0;
+}
+
+.menu_desplegable_lineas{
+    height: 0.25em;
+    width: 1.875em;
+    background-color: var(--color-azul);
+}
+
+#menu_close img{
+    height: 2.5em;
+    margin: auto;
+    float: left;
+}
+
+#menu_open{
+    height: 25em;
+    background-size: 18.75em;
+    background-position-y: 2.5em;
+    background-repeat: no-repeat;
+    display: flex;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#menu_open .menu_desplegable{
+    margin: 0.3125em 0.625em;
+    width: 1.875em;
+    height: 1.875em;
+}
+
+
+#menu_open .menu_desplegable .menu_desplegable_lineas{
+    width: 130%;
+}
+
+#linea1{
+    transform: rotate(45deg);
+    position: relative;
+    right: 0.375em;
+    top: 0.375em;
+
+}
+
+#linea2{
+    transform: rotate(-45deg);
+    position: relative;
+    bottom: 0.375em;
+    right: 0.375em;
+}
+#menu_open span{
+    margin-right: 10px;
+}
+
+#menu_open ul{
+  margin: 0;
+  padding: 0;
+}
+
+#menu_open li{
+    list-style: none;
+    text-align: center;
+    margin: 1.5625em auto;
+    font-size: 1.25em;
+    font-family: 'Montserrat' 'Courier New', Courier, monospace;
+}
+
+#menu_open a{
+    text-decoration: none;
+    color: var(--color-blanco);
+    font-weight: bold;
+}
+
+/* SELECTOR HOME */
+
 .home_selector{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    ". selector ."
+    ;
+    margin: 0 50px;
+    margin-top: 300px;
+}
+
+
+.home_selector .selector{
     display: grid;
     grid-template-columns: 50px 1fr 1fr 1fr 50px;
     grid-template-areas:
     ". fecha desde hasta ."
     ;
-    margin: 0 50px;
-    margin-top: 400px;   
-    border: solid 2px black;
-    padding: 30px;
+    grid-area: selector;
+    padding: 20px;
     border-radius: 50px;
+    background-color: var(--color-rojo);
+    box-shadow: 5px 5px 30px var(--color-azul);
+     /* border: solid 5px var(--color-gris-claro); */
+
 }
 
 .home_selector .fecha{
-    width: 300px;
+    width: 250px;
     grid-area: fecha;
     position: relative;
     margin: auto;
     display: flex;
+    margin: 0 30px;
     flex-direction: column;
 }
 .home_selector .fecha label{
@@ -29,14 +182,17 @@
     width: 100%;
     margin-bottom: 10px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-blanco);
 }
 .home_selector .desde{
-    width: 300px;
+    width: 250px;
     grid-area: desde;
     position: relative;
     margin: auto;
     display: flex;
+    margin: 0 15px;
     flex-direction: column;
 }
 
@@ -45,14 +201,19 @@
     width: 100%;
     margin-bottom: 10px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-blanco);
 }
+
 .home_selector .hasta{
-    width: 300px;
+    width: 250px;
     grid-area: hasta;
     position: relative;
     margin: auto;
     display: flex;
+    margin: 0 30px;
     flex-direction: column;
 }
 
@@ -61,5 +222,18 @@
     width: 100%;
     margin-bottom: 10px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-blanco);
+}
+
+.home_selector .selector .home_cuadro{
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    background-color: var(--color-blanco);
+    color: var(--color-gris-oscuro);
 }
