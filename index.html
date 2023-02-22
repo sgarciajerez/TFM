@@ -43,6 +43,10 @@
         </div>
     </nav>
     <aside class="home_container">
+        <header class="home_text">
+            <h1>VIAJA EN AUTOBÚS POR ANDALUCÍA</h1>
+            <h2>PLANEA TU DESTINO EN LÍNEAS DEL CONSORCIO METROPOLITANO DE TRANSPORTE</h2>
+        </header>
         <div class="home_selector">
             <section class="selector">
                 <div class="fecha">
@@ -51,19 +55,18 @@
                 </div>
                 <div class="desde">
                     <label for="selector_desde">¿Desde dónde saldrás?</label>
-                    <select class="home_cuadro" name="selector_desde" id="selector_desde">
-                        <option value="1">1</option>
+                    <select class="home_cuadro" name="selector_desde" id="desde">
                     </select>
                 </div>
                 <div class="hasta">
                     <label for="selector_hasta">¿Hacia dónde vas?</label>
                     <select class="home_cuadro" name="selector_hasta" id="selector_hasta">
-                        <option value="provincia1">1</option>
+                        <option class="home_option" value="provincia1">Elige una opción</option>
                     </select>
                 </div> 
             </section>
         </div>
-        <button class="home_container_boton">Buscar</button>
+        <button class="home_container_boton" id="boton_buscar"><span>Buscar</span></button>
     </aside>
     <footer>
     </footer>
@@ -73,5 +76,6 @@
             once:true
         });
     </script>
+    <script src="scripts/selector.js"></script>
 </body>
 </html>
