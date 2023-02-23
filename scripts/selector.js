@@ -1,29 +1,62 @@
-function mostrarConsorcios() {    
-    fetch("http://api.ctan.es/v1/Consorcios/7/consorcios").then(
-        (response) => response.json() //esto es un return y retorna otra promesa al ser un .json
-        //necesito hacer un then de ese resultado
-    ).then(  //este es el then del json
-        (data) => {
-            let autobuses = data.results;
-            console.log(autobuses);
-//            listarConsorcios(autobuses);
+document.addEventListener("DOMContentLoaded", () => {
+
+    const AGREGAR_VALOR_A_SELECTOR = (selector, valor) => {
+        let option = document.createElement('option');
+        option.value = valor.idConsorcio;
+        option.text = valor.nombre.toUpperCase();
+        selector.appendChild(option);
+    };
+
+    const SELECTOR_CONSORCIO = document.getElementById('selector_consorcio');
+    const SELECTOR_MUNICIPIO = document.getElementById('selector_municipio');
+
+    function mostrarConsorcios(){
+        fetch("http://api.ctan.es/v1/Consorcios/7/consorcios").then((response) => {
+          if (response.ok) {
+          return response.json();
         }
-    ).catch( //esto es para errores
-    () => {
-        console.log ('Error en la petición');
+        throw new Error('Something went wrong');
+      })
+      .then((responseJson) => {
+        let autobuses = responseJson.consorcios;
+        listarArrayEnSelector(SELECTOR_CONSORCIO, autobuses);
+      })
+      .catch((error) => {
+        console.log(error)
+      });
     }
-    )
-}
 
-function listarConsorcios(autobuses) {
-    let contenedor = document.querySelector('#desde');
-    pokemones.forEach((consorcio, index) => {
-        let area = document.createElement("option");
-        area.innerHTML= `${consorcio.nombre}`
-        contenedor.appendChild(area);
-    });
-}
+    function mostrarMunicipios(id){
+        fetch(`http://api.ctan.es/v1/Consorcios/${id}/municipios`).then((response) => {
+          if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Something went wrong');
+      })
+      .then((responseJson) => {
+        console.log(responseJson);
+        let municipios = responseJson.consorcios;
+        listarArrayEnSelector(SELECTOR_MUNICIPIO, municipios);
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+    }
 
-const button = document.getElementById('desde');
+    function listarArrayEnSelector(selector, array){
+        array.forEach(bus => {
+            AGREGAR_VALOR_A_SELECTOR(selector,bus);        
+        });
+    }
 
-button.addEventListener('click', mostrarConsorcios);
+    // SELECTOR_CONSORCIO.onchange() = () =>{
+    //     function seleccionar_Consorcio(){
+    //         let idConsorcio = SELECTOR_CONSORCIO.value;
+    //         mostrarMunicipios(idConsorcio);
+    //     }
+    // };
+    
+    SELECTOR_CONSORCIO.addEventListener("click", mostrarConsorcios());
+
+});;
+  
