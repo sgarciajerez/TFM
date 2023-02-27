@@ -1,7 +1,10 @@
 const express = require('express');
-
 const app = express();
-const PORT = 8000;
+require('dotenv').config();
+
+app.use(express.json()); //esto sirve para recibir json como peticiones
+
+const PORT = 8000 //lee el puerto desde los env en las rutas
 
 //RUTAS
 const usuariosRouter = require('./routes/usuariosRoutes');
