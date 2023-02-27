@@ -2,9 +2,16 @@ const { conexion } = require('../data_base/database-config');
 const { response, request } = require('express');
 const Usuario = require('../modelo/usuario');
 const {encrypt} = require('../helpers/utility.helper');
-
+const {validationResult} = require('express-validator');
+const {readUsuarios} = require('../DAO/usuarios.dao');
+ 
 function crearUsuario (peticion = request, respuesta = response) {
+    const validador = validationResult(peticion);
 
+    if(validador.errors.length>0){
+        return respuesta.status(400).json(validador.errors);
+    }
+    
     const {username, email, password} = peticion.body;
     const usuario = new Usuario (username, email, encrypt(password));
 
@@ -45,23 +52,23 @@ function crearUsuario (peticion = request, respuesta = response) {
             }
         })
     }
-
-    function internalServerError(respuesta){
-        console.log('error al ejecutar la query');
-        respuesta.status(500).send({
-            mensaje: 'Internal server error...'
-        })
-    }
 };
 
-function getUsuario (peticion = request, respuesta = response) {
-    peticion.send ({
-        ok: 'funciona'
+function getUsuarios (peticion = request, respuesta = response) {
+    return readUsuarios().then(
+        (usuarios) => respuesta.status(200).json(usuarios)
+    ).catch(() => internalServerError(respuesta)
+    );
+}
+
+function internalServerError(respuesta){
+    console.log('error al ejecutar la query');
+    respuesta.status(500).send({
+        mensaje: 'Internal server error...'
     })
 }
 
-
 module.exports = {
     crearUsuario,
-    getUsuario
+    getUsuarios
 }
