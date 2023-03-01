@@ -1,4 +1,5 @@
 class Usuario {
+    id;
     username;
     email;
     password;

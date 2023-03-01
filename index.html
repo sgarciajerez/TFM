@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="frontpage/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/fonts.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
             <h2>PLANEA TU DESTINO EN LÍNEAS DEL CONSORCIO METROPOLITANO DE TRANSPORTE</h2>
         </header>
         <div class="home_selector">
-            <section class="selector">
+            <form class="selector" method="linea.php" action="POST">
                 <div class="consorcio">
                     <label for="selector_consorcio">Selecciona tu zona</label>
                     <select class="home_cuadro" name="selector_consorcio" id="selector_consorcio">
@@ -69,9 +69,9 @@
                     <select class="home_cuadro" name="selector_linea" id="selector_linea">
                     </select>
                 </div> 
-            </section>
+            </form>
         </div>
-        <button class="home_container_boton" id="boton_buscar"><span>Buscar</span></button>
+        <button type="submit" class="home_container_boton" id="boton_buscar"><span>Buscar</span></button>
     </aside>
     <footer>
     </footer>
@@ -82,5 +82,6 @@
         });
     </script>
     <script src="scripts/selector.js"></script>
+    <script src="scripts/generarEnlace.js"></script>
 </body>
 </html>

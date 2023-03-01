@@ -1,5 +1,5 @@
-const { conexion } = require('../data_base/database-config');
-const Usuario = require('../modelo/usuario');
+const { conexion } = require('../database-config');
+const Usuario = require('../../modelo/usuario');
 
 function readUsuarios(){
     let query = `SELECT username, email from usuarios`;
@@ -21,9 +21,30 @@ function readUsuarios(){
             reject();
         }
     })
-
 }
 
+function buscarUsuarioPorEmail(usuario){
+    let query = `SELECT email, password from usuarios where email=?`
+    return new Promise ((resolve, reject ) => {
+        try {
+            conexion.query(query, [usuario.email], (errors, result) => {
+            if (errors){
+                console.log('hola');
+                throw errors
+            } if (result.length > 0) {
+                const usuarioBD = new Usuario (result[0]['username'], result[0]['email'], result[0]['password']);
+                usuarioBD.id = result[0]['id']
+                resolve(usuarioBD);
+            } else {
+                reject();
+            } 
+            })    
+        } catch (error) {
+            console.log('estoy en el catch');
+             reject (error);
+        }
+    })
+}
 
 // function insertarUsuario(usuario){
 
@@ -44,26 +65,7 @@ function readUsuarios(){
 //     })
 // }
 
-// function validarEmail (usuario){
-//     let query = `SELECT email from usuarios where email=?`;
-
-//     return new Promise ((resolve, reject ) => {
-//         try {
-//         conexion.query(query, [usuario.email], (errors, result) => {
-//         if (errors){
-//             throw errors
-//         }
-//         if(result.length > 0){
-//             reject(400);
-//         }
-//         resolve();
-//         })    
-//         } catch (error) {
-//             reject (500);
-//         }
-//     })
-// }
-
 module.exports = {
     readUsuarios,
+    buscarUsuarioPorEmail
 }

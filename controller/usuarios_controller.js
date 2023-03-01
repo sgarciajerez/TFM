@@ -1,9 +1,47 @@
 const { conexion } = require('../data_base/database-config');
 const { response, request } = require('express');
 const Usuario = require('../modelo/usuario');
-const {encrypt} = require('../helpers/utility.helper');
 const {validationResult} = require('express-validator');
-const {readUsuarios} = require('../DAO/usuarios.dao');
+const {readUsuarios, buscarUsuarioPorEmail} = require('../data_base/DAO/usuarios.dao');
+const  {crearJWT}= require('../helpers/jwt.helper');
+const {internalServerError} = require ('../helpers/utility.helper');
+
+
+function login (peticion = request, respuesta = response){
+    const validador = validationResult(peticion);
+    if(validador.errors.length>0){
+        return respuesta.status(400).json(validador.errors);
+    }
+
+    const {email, password} = peticion.body;
+    const usuario = new Usuario ("", email, password);
+
+    buscarUsuarioPorEmail (usuario).then(
+        (usuarioValidado)=>{
+            if (password === usuarioValidado.password){
+                crearJWT(usuarioValidado.id).then((token) => {
+                    respuesta.status(202).json({
+                        mensaje: "Login realizado con éxito",
+                        token
+                    })
+                }
+                ).catch((error) => internalServerError(respuesta))
+            } else{
+                respuesta.status(404).json({
+                    mensaje: 'La contraseña que has introducido es incorrecta'
+                })
+        }
+    }).catch((error)=>{
+        if (error){
+            internalServerError(respuesta);
+        } else {
+            respuesta.status(404).json({
+                mensaje: 'El email que has introducido no existe en la Base de Datos'
+            })
+        }
+    })
+
+}
  
 function crearUsuario (peticion = request, respuesta = response) {
     const validador = validationResult(peticion);
@@ -13,7 +51,7 @@ function crearUsuario (peticion = request, respuesta = response) {
     }
     
     const {username, email, password} = peticion.body;
-    const usuario = new Usuario (username, email, encrypt(password));
+    const usuario = new Usuario (username, email, password);
 
     try {
         comprobarSiExisteEmail(usuario);
@@ -46,13 +84,21 @@ function crearUsuario (peticion = request, respuesta = response) {
                 internalServerError(respuesta);
             }
             if (result){
-                respuesta.status(201).json({
-                    mensaje: `Registrado el usuario con nombre ${usuario.username} con email ${usuario.email}`
+                let idUsuario = result.insertId; //este es el id del usuario
+                crearJWT(idUsuario).then(
+                    (token) => {
+                        respuesta.status(201).json({
+                            mensaje: `Registrado el usuario con nombre ${usuario.username} con email ${usuario.email}`,
+                            token
+                        })
+                }).catch(
+                    (error)=>{
+                        internalServerError(respuesta)
                 })
             }
         })
     }
-};
+}
 
 function getUsuarios (peticion = request, respuesta = response) {
     return readUsuarios().then(
@@ -61,14 +107,8 @@ function getUsuarios (peticion = request, respuesta = response) {
     );
 }
 
-function internalServerError(respuesta){
-    console.log('error al ejecutar la query');
-    respuesta.status(500).send({
-        mensaje: 'Internal server error...'
-    })
-}
-
 module.exports = {
     crearUsuario,
-    getUsuarios
+    getUsuarios,
+    login
 }
