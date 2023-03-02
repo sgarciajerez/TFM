@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/media/logoParaTittle.png" type="image/x-icon">
+    <title>ANDALUCÍA EN BUS-LINEA APP-WEB</title>
+</head>
+<body>
+    <nav class="menu" id="menu">
+        <div id="menu_abierto">
+            <ul>
+                <li><a href="index.html"><span class="icon-home"></span> Inicio</a></li>
+                <li><a href="lineas_bus.html"><span class="icon-leaf"></span>Buses Disponibles</a></li>
+                <li class="menu_derecha"><a href="acceso.html" class="menu_derecha"><span class="icon-spoon-knife"></span>Accede a tu usuario</a></li>
+            </ul>
+        </div>
+        <div id="menu_close">
+            <div class="menu_desplegable" id="menu_abre">
+                <div class="menu_desplegable_lineas"></div>
+                <div class="menu_desplegable_lineas"></div>
+                <div class="menu_desplegable_lineas"></div>
+            </div>
+            <img onclick="document.getElementById('inicio').scrollIntoView({ behavior: 'smooth', block: 'center'});" src="Images/LuisaHerediaMenu.jpg" alt="logotipo de Dietista y Nutricionista">
+        </div>
+        <div id="menu_open">
+            <div class="menu_desplegable" id="menu_cierra">
+                <div class="menu_desplegable_lineas" id="linea1"></div>
+                <div class="menu_desplegable_lineas" id="linea2"></div>
+            </div>
+            <ul>
+                <li><a href="index.html"><span class="icon-home"></span> Inicio</a></li>
+                <li><a href="lineas_bus.html"><span class="icon-leaf"></span>Buses Disponobles</a></li>
+                <li><a href="acceso.html"><span class="icon-spoon-knife"></span>Accede a tu usuario</a></li>
+            </ul>
+        </div>
+    </nav>
+    {{{ body }}}
+    <footer>
+    </footer>
+    <script>
+        AOS.init({
+            duration:1000,
+            once:true
+        });
+    </script>
+    <script src="scripts/selector.js"></script>
+</body>
+</html>

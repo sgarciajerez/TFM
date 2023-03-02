@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const SELECTOR_CONSORCIO = document.getElementById('selector_consorcio');
-  const SELECTOR_MUNICIPIOS = document.getElementById('selector_municipio');
-  const SELECTOR_NUCLEOS = document.getElementById('selector_nucleo');
-  const SELECTOR_LINEAS = document.getElementById('selector_linea');
+  const SELECTOR_CONSORCIO = document.getElementById('idConsorcio');
+  const SELECTOR_MUNICIPIOS = document.getElementById('idMunicipio');
+  const SELECTOR_NUCLEOS = document.getElementById('idNucleo');
+  const SELECTOR_LINEAS = document.getElementById('idLinea');
   
   (function mostrarConsorcios(){
       fetch("http://api.ctan.es/v1/Consorcios/7/consorcios").then((response) => {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }) ();
 
   function limpiarSelector(selector) {
-    for (let i = selector.options.length; i >= 0; i--) {
+    for (let i = selector.options.length; i >= 1; i--) {
       selector.remove(i);
     }
   };

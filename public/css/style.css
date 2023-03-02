@@ -17,7 +17,7 @@
 body{
     margin: 0;
     font-size: 16px;
-    background-image: url(../media/home_fondo.jpg);
+    background-image: url(/media/home_fondo.jpg);
     background-repeat:no-repeat;
     background-size: 100% 1200px;
 }

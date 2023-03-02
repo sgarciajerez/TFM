@@ -1,0 +1,28 @@
+<aside class="home_container">
+    <header class="home_text">
+        <h1>VIAJA EN AUTOBÚS POR ANDALUCÍA</h1>
+        <h2>PLANEA TU DESTINO EN LÍNEAS DEL CONSORCIO METROPOLITANO DE TRANSPORTE</h2>
+    </header>
+    <div class="home_selector">
+        <form class="selector" action="/submitLinea" method="POST" id="home-form">
+                <label for="idConsorcio">Selecciona tu zona</label>
+                <select class="home_cuadro" name="idConsorcio" id="idConsorcio">
+                    <option value="0">Selecciona una opción</option>
+                </select>
+                <label for="idMunicipio">Tu municipio</label>
+                <select class="home_cuadro" name="idMunicipio" id="idMunicipio">
+                    <option value="0">Selecciona una opción</option>
+                </select>
+                <label for="idNucleo">Tu zona más cercana</label>
+                <select class="home_cuadro" name="idNucleo" id="idNucleo">
+                    <option value="0">Selecciona una opción</option>
+                </select>
+                <label for="idLinea">Líneas Disponibles</label>
+                <select class="home_cuadro" name="idLinea" id="idLinea">
+                    <option value="0">Selecciona una opción</option>
+                </select>
+                <input type="submit"> 
+        </form>
+    </div>
+    <button type="submit" class="home_container_boton" id="boton_buscar"><span>Buscar</span></button>
+</aside>
