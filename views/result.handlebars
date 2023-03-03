@@ -1,2 +1,34 @@
-<h1>Gracias por enviarnos tus datos, {{{idLinea}}}!</h1>
-<p>Tu dirección de correo electrónico es {{{idConsorcio}}}.</p>
+<head>
+    <link rel="stylesheet" href="/css/linea.css">
+</head>
+
+<body>
+
+    <aside class="line_container">
+        <header class="line_tittle">
+            <h1>TODOS LOS DETALLES DE TU LÍNEA MÁS CERCANA</h1>
+        </header>
+        <section class="line_details">
+            <div>
+                <p id="nombre_linea"></p>
+            </div>
+            <div>
+                <p id="operador_linea"></p>
+            </div>
+            <div>
+                <p id="pmr_linea"></p>
+            </div>
+            <div>
+                <p id="observaciones_linea"></p>
+            </div>
+            <div>
+                <img id="imagenIda" src="observaciones_linea">
+            </div>
+            <div>
+                <img id="imagenVuela" src="observaciones_linea">
+            </div>
+        </section>
+
+    </aside>
+</body>
+<script src="/scripts/cargarDatosLinea.js"></script>

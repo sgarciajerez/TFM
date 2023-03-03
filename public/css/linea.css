@@ -1,0 +1,21 @@
+body{
+    background-image: url(/media/home_fondo.jpg);
+    background-repeat:no-repeat;
+    background-size: 100% 1200px;
+}
+
+.line_container{
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+    "text"
+    "container_info"
+    ;
+    margin-top: 230px;
+}
+
+.line_tittle{
+    grid-area: text;
+    text-align: center;
+    color: var(--color-blanco);
+}

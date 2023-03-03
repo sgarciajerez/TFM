@@ -26,13 +26,17 @@ app.use('/lineas' , lineasRouter);
 app.post('/submitLinea', (req, res) => {
     const idLinea= req.body.idLinea;
     const idConsorcio= req.body.idConsorcio;
-    res.render('result', { idLinea, idConsorcio });
-});
-  
+    res.redirect(`result?Consorcio=${idConsorcio}&Linea=${idLinea}`);
+});  
   
 app.get ('/home', (req, res) =>{
     res.render ('home')
 })
+  
+app.get ('/result', (req, res) =>{
+    res.render ('result');
+})
+
 
 app.listen(
     PORT,
