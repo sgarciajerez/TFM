@@ -28,8 +28,8 @@
             introducirPMRLinea(data_text[2]);
             introducirObservacionesLinea(data_text[3]);
 
-            introducir_src_imagen_ida(images[0]);
-            introducir_src_imagen_vuelta(images[1]);
+            botonIda(images[0]);
+            botonVuelta(images[1]);
         }
         ).catch((error) => {
         console.log(error)
@@ -56,14 +56,13 @@
         introducirTexto(contenedor, data_text);
     }
 
-    function introducir_src_imagen_ida(url_image){
-        const imagen = document.getElementById('imagenIda');
-        imagen.src = url_image;
+    function botonIda (url){
+        const boton = document.getElementById('botonIda');
+        boton.href=url;
     }
-
-    function introducir_src_imagen_vuelta(url_image){
-        const imagen = document.getElementById('imagenVuelta');
-        imagen.src = url_image;
+    function botonVuelta (url){
+        const boton = document.getElementById('botonVuelta');
+        boton.href=url;
     }
 
     function introducirTexto(contenedor, data_text){

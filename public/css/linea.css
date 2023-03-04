@@ -10,6 +10,7 @@ body{
     grid-template-areas:
     "text"
     "container_info"
+    "imagenes"
     ;
     margin-top: 230px;
 }
@@ -18,4 +19,23 @@ body{
     grid-area: text;
     text-align: center;
     color: var(--color-blanco);
+}
+
+.line_details{
+    grid-area: container_info;
+    margin-top: 20px;
+}
+
+.line_images{
+    grid-area: imagenes;
+    margin-top: 20px;
+}
+
+.imagenes_linea{
+    padding: 0;
+    height: 1200px;
+}
+
+.row {
+    --bs-gutter-x: 0;
 }
