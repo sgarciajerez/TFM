@@ -3,6 +3,9 @@
     const idConsorcio = params.get('Consorcio');
     const idLinea = params.get('Linea');
 
+    //llamada a la función
+    rellenarDatosLinea(idConsorcio, idLinea);
+
     function rellenarDatosLinea(idConsorcio, idLinea) {
         fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/lineas/${idLinea}`).then((response) => {
             if (response.ok) {
@@ -56,6 +59,10 @@
         introducirTexto(contenedor, data_text);
     }
 
+    function introducirTexto(contenedor, data_text){
+        contenedor.innerHTML = data_text.toUpperCase();
+    }
+
     function botonIda (url){
         const boton = document.getElementById('botonIda');
         boton.href=url;
@@ -64,11 +71,5 @@
         const boton = document.getElementById('botonVuelta');
         boton.href=url;
     }
-
-    function introducirTexto(contenedor, data_text){
-        contenedor.innerHTML = data_text.toUpperCase();
-    }
-
-    rellenarDatosLinea(idConsorcio, idLinea);
 
 })();
