@@ -32,52 +32,6 @@ body{
     margin: 10px 0 30px 0;
 }
 
-.home_container_boton{
-    margin: 0 auto;
-    text-align: center;
-    grid-area: boton;
-    margin-top: 25px;
-    width: 250px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--color-azul);
-    box-shadow: 5px 5px 15px var(--color-blanco);
-    position: relative;
-    overflow: hidden;
-    transition: all ease-in 0.2s;
-}
-
-.home_container_boton span{
-    font-size: 16px;
-    position: relative;
-    font-weight: bold;
-    color: var(--color-blanco);
-    z-index: 2;
-}
-
-.home_container_boton::after{
-    position: absolute;
-    content: '';
-    background-color: #FF5A5F;
-    width: 250px;
-    height: 40px;
-    top: 0;
-    right: 100%;
-    z-index: 1;
-    transition: all ease-in 0.2s;
-}
-
-.home_container_boton:hover{
-    cursor: pointer;
-    box-shadow: 5px 5px 30px var(--color-blanco);
-}
-
-.home_container_boton:hover::after{
-    right: 0;
-}
-
-
 .home_selector{
     grid-area: container_selector;
     display: grid;
@@ -94,6 +48,7 @@ body{
     grid-template-areas:
     ". consorcio municipio ." 
     ". nucleo linea ."
+    ". boton boton ."
     ;
     grid-area: selector;
     padding: 20px;
@@ -196,3 +151,54 @@ body{
 .home_option{
     font-size: 16px;
 }
+
+.home_container_boton{
+    margin: 0 auto;
+    text-align: center;
+    grid-area: boton;
+    margin-top: 25px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--color-azul);
+    box-shadow: 5px 5px 15px var(--color-blanco);
+    color: var(--color-blanco);
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    transition: all ease-in 0.2s;
+}
+
+.home_container_boton span{
+    font-size: 16px;
+    position: relative;
+    font-weight: bold;
+    color: var(--color-blanco);
+    z-index: 2;
+}
+
+.home_container_boton::after{
+    position: absolute;
+    content: '';
+    background-color: #FF5A5F;
+    width: 250px;
+    height: 50px;
+    top: 0;
+    right: 100%;
+    z-index: 1;
+    transition: all ease-in 0.2s;
+}
+
+.home_container_boton:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 30px var(--color-blanco);
+}
+
+.home_container_boton:hover::after{
+    right: 0;
+}
+

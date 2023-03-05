@@ -22,20 +22,27 @@ const lineasRouter = require('./routes/lineasRoutes');
 
 app.use('/usuarios' , usuariosRouter);
 app.use('/lineas' , lineasRouter);
-
-app.post('/submitLinea', (req, res) => {
-    const idLinea= req.body.idLinea;
-    const idConsorcio= req.body.idConsorcio;
-    res.redirect(`result?Consorcio=${idConsorcio}&Linea=${idLinea}`);
-});  
   
 app.get ('/home', (req, res) =>{
     res.render ('home')
 })
-  
-app.get ('/result', (req, res) =>{
-    res.render ('result');
+
+app.get ('/autobuses', (req, res) =>{
+    res.render ('autobuses')
 })
+app.get ('/registro', (req, res) =>{
+    res.render ('registro')
+})
+  
+app.get ('/linea', (req, res) =>{
+    res.render ('linea');
+})
+
+app.post('/queryLinea', (req, res) => {
+    const idLinea= req.body.idLinea;
+    const idConsorcio= req.body.idConsorcio;
+    res.redirect(`linea?Consorcio=${idConsorcio}&Linea=${idLinea}`);
+}); 
 
 
 app.listen(
