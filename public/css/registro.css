@@ -3,3 +3,28 @@ body{
     background-repeat:no-repeat;
     background-size: 100% 1200px;
 }
+
+.register_form{
+    background-color: var(--color-rojo);
+    border: 2px solid var(--color-blanco);
+    width: 500px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 150px auto;
+}
+
+.register_form label{
+    text-align: center;
+}
+
+.register_form li{
+    color: var(--color-blanco);
+    margin: 0;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#boton_intentar {
+    visibility: hidden;
+}

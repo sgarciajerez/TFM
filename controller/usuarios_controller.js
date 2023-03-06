@@ -69,7 +69,8 @@ function crearUsuario (peticion = request, respuesta = response) {
             }
             if(result.length > 0){
                 respuesta.status(400).json({
-                    mensaje: `Ya está registrado el email ${usuario.email}`
+                    msg: `Ya está registrado el email ${usuario.email}`,
+                    error: `Intente iniciar sesión`
                 })
             } else {
                 insertarUsuario(usuario);
@@ -88,7 +89,7 @@ function crearUsuario (peticion = request, respuesta = response) {
                 crearJWT(idUsuario).then(
                     (token) => {
                         respuesta.status(201).json({
-                            mensaje: `Registrado el usuario con nombre ${usuario.username} con email ${usuario.email}`,
+                            msg: `Registrado el usuario con nombre ${usuario.username} con email ${usuario.email}`,
                             token
                         })
                 }).catch(
