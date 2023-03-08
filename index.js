@@ -39,9 +39,10 @@ app.get ('/linea', (req, res) =>{
 })
 
 app.post('/queryLinea', (req, res) => {
-    const idLinea= req.body.idLinea;
     const idConsorcio= req.body.idConsorcio;
-    res.redirect(`linea?Consorcio=${idConsorcio}&Linea=${idLinea}`);
+    const idNucleo= req.body.idNucleo;
+    const idLinea= req.body.idLinea;
+    res.redirect(`linea?Consorcio=${idConsorcio}&Nucleo=${idNucleo}&Linea=${idLinea}`);
 }); 
 
 

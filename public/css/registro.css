@@ -4,21 +4,58 @@ body{
     background-size: 100% 1200px;
 }
 
-.register_form{
-    background-color: var(--color-rojo);
-    border: 2px solid var(--color-blanco);
-    width: 500px;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 150px auto;
+*{
+    font-family: 'Montserrat';
 }
 
-.register_form label{
-    text-align: center;
-}
-
-.register_form li{
+form {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris);
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 150px;
+    box-shadow: 2px 5px 20px black;
+  }
+  
+  form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-azul);
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  form button[type="submit"] {
+    background-color: var(--color-azul);
     color: var(--color-blanco);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: var(--color-rojo);
+  }
+
+  
+.register_form li{
+    color: var(--color-rojo);
     margin: 0;
     margin-top: 3px;
     font-size: 14px;

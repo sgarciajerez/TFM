@@ -2,11 +2,11 @@
     const params = new URLSearchParams(window.location.search);
     const idConsorcio = params.get('Consorcio');
     const idLinea = params.get('Linea');
-
+    
     //llamada a la función
-    rellenarDatosLinea(idConsorcio, idLinea);
+    rellenarDatosBasicosLinea();
 
-    function rellenarDatosLinea(idConsorcio, idLinea) {
+    function rellenarDatosBasicosLinea() {
         fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/lineas/${idLinea}`).then((response) => {
             if (response.ok) {
                 return response.json();
