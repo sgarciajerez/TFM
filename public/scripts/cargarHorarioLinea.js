@@ -1,7 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const idConsorcio = params.get('Consorcio');
 const idLinea = params.get('Linea');
-const idNucleo = params.get('Nucleo');
 
 function pedirHorarioAPI(){
 
@@ -77,8 +76,8 @@ function buscarIdNucleo (nucleosIda) {
         }).then((data) =>{
             let listaNucleos = data.nucleos;
             let listaIdNucleos = [{
-                nombre,
-                idNucleo
+                nombre:'',
+                idNucleo:0
             }];
             nucleosIda.forEach((element, index) => {
                 let contador=0;
@@ -178,39 +177,6 @@ function realizarPeticionAPI (response){
       });
     }
   }
-
-function mandarPeticion (boton){
-
-    // Objeto con los datos a enviar
-    const datos = {
-        nombre: 'Juan',
-        edad: 30
-    };
-    
-    // Opciones de la petición
-    const opciones = {
-        method: 'POST',
-        body: JSON.stringify(datos),
-        headers: {
-        'Content-Type': 'application/json'
-        }
-    };
-    
-    // URL de la página a la que se enviarán los datos
-    const url = 'http://ejemplo.com/mi-pagina';
-    
-    // Realizar la petición
-    fetch(url, opciones)
-        .then(response => {
-        // La petición fue exitosa
-        console.log('La petición fue exitosa');
-        })
-        .catch(error => {
-        // La petición falló
-        console.error('La petición falló', error);
-        });
-  
-} 
 
 
 pedirHorarioAPI();

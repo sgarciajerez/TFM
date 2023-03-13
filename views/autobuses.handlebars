@@ -2,4 +2,20 @@
     <link rel="stylesheet" href="/css/autobuses.css">
 </head>
 
-<h1>Soy autobuses</h1>
+<section>
+    <h1>Listado de Líneas de un Consorcio</h1>
+    <h2>Selecciona primero el Consorcio</h2>
+    <div class="consorcio">
+        <label for="idConsorcio">Selecciona tu zona</label>
+        <select class="home_cuadro" name="idConsorcio" id="idConsorcio">
+            <option value="0">Selecciona una opción</option>
+        </select>
+        <button id="boton_mostrar_lineas" style="visibility:hidden">Mostrar Líneas</button>
+    </div>
+</section>
+<section>
+    <h2 id="titulo_listado"></h2>
+    <ul id="listadoConsorcios">
+</section>
+
+<script src="/scripts/mostrarLineasPorConsorcio.js"></script>

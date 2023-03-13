@@ -1,46 +1,191 @@
-body{
-    background-image: url(/media/linea_fondo.jpg);
-    background-repeat:no-repeat;
-    background-size: 100% 1200px;
+.header_container{
+  background-image: url(/media/linea_fondo.jpg);
+  background-repeat:no-repeat;
+  height: 1000px;
+  padding-top: 230px;
 }
 
 .line_container{
     display: grid;
-    width: 100%;
+    width: 1000px;
+    margin: auto;
     grid-template-areas:
     "text"
-    "container_info"
-    "imagenes"
+    "boton"
     ;
-    margin-top: 230px;
 }
 
 .line_tittle{
     grid-area: text;
     text-align: center;
     color: var(--color-blanco);
+    background-color: rgba(0, 132, 137, 0.5)
+    ;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 40px var(--color-blanco);
 }
 
-.line_details{
-    grid-area: container_info;
-    margin-top: 20px;
+.line_tittle h1{
+  font-weight: bold;
+  font-size: 60px;
 }
 
-.line_images{
-    grid-area: imagenes;
-    margin-top: 20px;
+.line_tittle h2{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 15px;
 }
 
-.imagenes_linea{
-    padding: 0;
-    height: 1200px;
+.line_container button{
+  grid-area: boton;
+  width: 300px;
+  margin: 40px auto;
+  padding: 10px;
+  border: 2px solid var(--color-blanco);
+  background-color: var(--color-rojo);
+  border-radius: 20px;
+  color: var(--color-blanco);
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.row {
-    --bs-gutter-x: 0;
+.container_info{
+  background-color: var(--color-blanco);
+  padding: 50px 0 25px 0;
+  width: 1000px;
+  margin: auto;
 }
 
-/* Estilos para la tabla */
+.container_info h2{
+  text-align: center;
+  color: var(--color-azul);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.container_info .container_info_container{
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.container_info .container_info_container .cuerpo_info{
+  max-width: 300px;
+  background-color: var(--color-azul);
+  margin: 15px 15px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.container_info .container_info_container .cuerpo_info h3{
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-blanco);
+  font-weight: bold;
+}
+
+.container_info .container_info_container .cuerpo_info p{
+  text-align: center;
+  color: var(--color-blanco);
+}
+
+.container_info .container_info_termometros{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container_info .container_info_termometros button{
+  margin: 0 15px;
+  width: 300px;
+  padding: 20px;
+  border: none;
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+
+.container_precios{
+  width: 100%;
+  background-color: var(--color-azul);
+  margin: 50px auto 0 auto;
+  padding: 50px;
+}
+
+.container_precios div{
+  width: 1000px;
+  background-color: var(--color-blanco);
+  padding: 30px;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.container_precios h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: var(--color-azul);
+}
+
+
+/*Estilos para el Listado de Núcleos*/
+
+.container_listaNucleos{
+  margin: 0;
+  background-color: var(--color-azul);
+}
+
+.container_listaNucleos h2{
+  padding-top: 50px;
+  text-align: center;
+  color: var(--color-blanco);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.container_listaNucleos .listaNucleos{
+  list-style: none;
+  color: var(--color-blanco);
+  width: 1000px;
+  margin: 40px auto;
+  padding-bottom:50px;
+
+}
+
+.container_listaNucleos .listaNucleos li{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "nombre selector"
+  ;
+  margin: 20px 0;
+}
+
+.container_listaNucleos .listaNucleos li p{
+  grid-area: nombre;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.container_listaNucleos .listaNucleos li form{
+  grid-area: selector;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.container_listaNucleos .listaNucleos li form select{
+  width: 350px;
+}
+
+/* Estilos para las tablas */
 table {
     border-collapse: collapse;
     width: 70%;

@@ -2,63 +2,45 @@
     <link rel="stylesheet" type="text/css" href="/css/linea.css">
 </head>
 <main>
-    <aside class="line_container">
-        <header class="line_tittle">
-            <h1>TODOS LOS DETALLES DE TU LÍNEA MÁS CERCANA</h1>
-        </header>
-        <section class="line_details">
-            <p class="d-flex justify-content-center flex-wrap">
-                <a class="btn btn-primary mx-1" data-bs-toggle="collapse" href="#bs_nombreLinea" role="button" aria-expanded="false" aria-controls="bs_nombreLinea">Nombre de la Línea</a>
-                <button class="btn btn-primary mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#bs_operadoresLinea" aria-expanded="false" aria-controls="bs_operadoresLinea">Operador que ofrece el servicio</button>
-                <button class="btn btn-primary mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#bs_pmrLinea" aria-expanded="false" aria-controls="bs_pmrLinea">PMR</button>
-                <button class="btn btn-primary mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#bs_observacionesLinea" aria-expanded="false" aria-controls="bs_observacionesLinea">Observaciones del Transporte</button>
-                <button class="btn btn-primary mx-1" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="bs_nombreLinea bs_operadoresLinea bs_pmrLinea bs_observacionesLinea">Mostrar/Ocultar elementos</button>
-            </p>
-            <aside class="row d-flex justify-content-center flex-wrap align-items-center">
-                <div class="col-2 mx-1">
-                    <section class="collapse multi-collapse " id="bs_nombreLinea">
-                    <div class="card card-body overflow-x-auto text-center" id="nombre_linea">
-                        </div>
-                    </section>
-                </div>
-                <div class="col-2 mx-1">
-                    <div class="collapse multi-collapse" id="bs_operadoresLinea">
-                        <div class="card card-body overflow-x-auto text-center" id="operador_linea">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2 mx-1">
-                    <div class="collapse multi-collapse" id="bs_pmrLinea">
-                    <div class="card card-body overflow-x-auto text-center" id="pmr_linea">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2 mx-1">
-                    <div class="collapse multi-collapse" id="bs_observacionesLinea">
-                        <div class="card card-body overflow-x-auto text-center" id="observaciones_linea">
-                        </div>
-                    </div>
-                </div>
-                </aside>
-        </section>
-        <section class="line_images">
-            <p class="d-flex justify-content-center flex-wrap">
-                <a class="btn btn-primary mx-1" type="button" id="botonIda" target="_blank">Ver Termómetro de Viaje de Ida</a>
-                <a class="btn btn-primary mx-1" type="button" id="botonVuelta" target="_blank">Ver Termómetro de Viaje de Vuelta</a>
-            </p>
-        </section>
-    </aside>
-    <section>
-        <h2>Núcleos por los que pasa La Línea</h2>
-        <ul id="listaNucleos" class="listaNucleos"></ul>
+    <main class="header_container">
+        <aside class="line_container">
+            <header class="line_tittle">
+                <h1>TU LÍNEA ANDALUZA DE AUTOBÚS AL DETALLE</h1>
+                <h2 id="nombre_linea"></h2>
+                <button>VER HORARIO</button>
+            </header>
+        </aside>
+    </main>
+    <section class="container_info">
+        <h2>INFORMACIÓN MÁS RELEVANTE</h2>
+        <aside class="container_info_container">
+            <div class="cuerpo_info">
+                <h3>OPERADOR</h3>
+                <p id="operador_linea"></p>
+            </div>
+            <div class="cuerpo_info">
+                <h3>PMR</h3>
+                <p id="pmr_linea"></p>
+            </div>
+            <div class="cuerpo_info">
+                <h3>OBSERVACIONES</h3>
+                <p id="observaciones_linea"></p>
+            </div>
+        </aside>
+        <aside class="container_info_termometros">
+            <button id="botonIda" target="_blank">Ver Termómetro de Viaje IDA</button>
+            <button id="botonVuelta" target="_blank">Ver Termómetro de Viaje VUELTA</button>
+        </aside>
     </section>
-    <section>
-        <h2>Puntos de Venta en el Municipio</h2>
-        <ul id="listaVenta"></ul>
-    </section>
-    <section>
+    <section class="container_precios">
+        <div>
         <h2>Precios del billete</h2>
         <table id="tablaPrecios"></table>
+        </div>
+    </section>
+    <section class="container_listaNucleos">
+        <h2> OTROS NÚCLEOS RELACIONADOS CON ESTA LÍNEA</h2>
+        <ul id="listaNucleos" class="listaNucleos"></ul>
     </section>
     <section>
         <h2>Horarios De la Línea</h2>
@@ -68,3 +50,4 @@
 <script src="/scripts/cargarDatosLinea.js"></script>
 <script src="/scripts/cargarHorarioLinea.js"></script>
 <script src="/scripts/cargarPuntoVenta.js"></script>
+''

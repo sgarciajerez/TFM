@@ -2,41 +2,8 @@
     
     const params = new URLSearchParams(window.location.search);
     const idConsorcio = params.get('Consorcio');
-    const idLinea = params.get('Linea');
-    const idNucleo = params.get ('Nucleo');
-
-    pedirAPIPuntosVenta();
+    
     pedirAPIPrecio();
-
-
-    function pedirAPIPuntosVenta() {
-        fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/puntos_venta`).then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else{
-                throw new Error('Something went wrong');
-            } 
-        }
-        ).then((data) => {
-            mostrarPuntoVentaMunicipio(data);
-        }).catch((error) => {
-        console.log(error)
-        });
-    }
-
-    function mostrarPuntoVentaMunicipio(data) {
-        const listado = document.getElementById('listaVenta');
-        const Array = data.puntosVenta;
-        Array.forEach(element => {
-            let numeroPuntos=0;
-            if(element.idNucleo == idNucleo){
-                numeroPuntos++;
-                const puntoVenta = document.createElement('li');
-                puntoVenta.textContent = element.direccion;
-                listado.appendChild(puntoVenta);
-            }   
-        });
-    }
 
     function pedirAPIPrecio() {
         fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/tarifas_interurbanas`).then((response) => {
