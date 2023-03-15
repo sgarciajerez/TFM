@@ -1,8 +1,11 @@
 .header_container{
   background-image: url(/media/linea_fondo.jpg);
   background-repeat:no-repeat;
-  height: 1000px;
+  height: 500px;
   padding-top: 230px;
+  box-shadow: 5px 5px 20px var(--color-azul);
+  position: relative;
+  z-index: 2;
 }
 
 .line_container{
@@ -21,26 +24,28 @@
     color: var(--color-blanco);
     background-color: rgba(0, 132, 137, 0.5)
     ;
-    padding: 40px;
+    padding: 20px;
     border-radius: 20px;
     box-shadow: 5px 5px 40px var(--color-blanco);
 }
 
 .line_tittle h1{
   font-weight: bold;
-  font-size: 60px;
+  font-size: 30px;
+  margin: 0;
 }
 
 .line_tittle h2{
   font-weight: bold;
   font-size: 20px;
-  margin-top: 15px;
+  margin:0;
+  margin-top: 10px;
 }
 
 .line_container button{
   grid-area: boton;
   width: 300px;
-  margin: 40px auto;
+  margin: 100px auto;
   padding: 10px;
   border: 2px solid var(--color-blanco);
   background-color: var(--color-rojo);
@@ -55,6 +60,8 @@
   padding: 50px 0 25px 0;
   width: 1000px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .container_info h2{
@@ -114,9 +121,8 @@
 
 
 .container_precios{
-  width: 100%;
   background-color: var(--color-azul);
-  margin: 50px auto 0 auto;
+  margin: 50px 0 0 0;
   padding: 50px;
 }
 
@@ -145,7 +151,8 @@
 }
 
 .container_listaNucleos h2{
-  padding-top: 50px;
+  padding-top: 30px;
+  margin: 0;
   text-align: center;
   color: var(--color-blanco);
   text-transform: uppercase;
@@ -196,6 +203,7 @@ table {
   /* Estilos para las celdas del encabezado */
   th {
     background-color: var(--color-rojo);
+    border: 1px solid var(--color-azul);
     color: var(--color-blanco);
     font-weight: bold;
     padding: 5px;

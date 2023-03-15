@@ -2,18 +2,21 @@
     <link rel="stylesheet" href="/css/autobuses.css">
 </head>
 
-<section>
-    <h1>Listado de Líneas de un Consorcio</h1>
-    <h2>Selecciona primero el Consorcio</h2>
-    <div class="consorcio">
-        <label for="idConsorcio">Selecciona tu zona</label>
-        <select class="home_cuadro" name="idConsorcio" id="idConsorcio">
-            <option value="0">Selecciona una opción</option>
-        </select>
-        <button id="boton_mostrar_lineas" style="visibility:hidden">Mostrar Líneas</button>
-    </div>
+<section class="container_header">
+    <aside class="header_tittle">
+    <h1>Líneas de Bus Disponibles en tu provincia</h1>
+        <h2>Consulta todas las líneas existentes dentro de un consorcio</h2>
+        <div class="selector_consorcio">
+            <label for="idConsorcio">Selecciona tu zona</label>
+            <select class="home_cuadro" name="idConsorcio" id="idConsorcio">
+                <option value="0">Selecciona una opción</option>
+            </select>
+        </div>
+    </aside>
+    <button id="boton_mostrar_lineas" style="visibility:hidden">Mostrar Líneas</button>
+    <p id="parrafo_desliza">¡Desliza hacia abajo!</p>
 </section>
-<section>
+<section class="container_listado">
     <h2 id="titulo_listado"></h2>
     <ul id="listadoConsorcios">
 </section>

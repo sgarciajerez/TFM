@@ -38,11 +38,15 @@ app.get ('/linea', (req, res) =>{
     res.render ('linea');
 })
 
+app.get ('/horario', (req, res) =>{
+    res.render('horario');
+})
+
 app.post('/queryLinea', (req, res) => {
     const idConsorcio= req.body.idConsorcio;
     const idLinea= req.body.idLinea;
     res.redirect(`linea?Consorcio=${idConsorcio}&Linea=${idLinea}`);
-}); 
+});
 
 
 app.listen(

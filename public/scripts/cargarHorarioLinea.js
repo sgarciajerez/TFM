@@ -1,10 +1,10 @@
 const params = new URLSearchParams(window.location.search);
-const idConsorcio = params.get('Consorcio');
-const idLinea = params.get('Linea');
+const Consorcio = params.get('Consorcio');
+const Linea = params.get('Linea');
 
 function pedirHorarioAPI(){
 
-    fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/horarios_lineas?dia=&frecuencia=&lang=ES&linea=${idLinea}&mes=`).then(
+    fetch(`http://api.ctan.es/v1/Consorcios/${Consorcio}/horarios_lineas?dia=&frecuencia=&lang=ES&linea=${Linea}&mes=`).then(
         (response)=>{
             if(response.ok){
                 return response.json()
@@ -66,7 +66,7 @@ function cargarNucleos(data){
 }
 
 function buscarIdNucleo (nucleosIda) {
-    fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/nucleos`).then(
+    fetch(`http://api.ctan.es/v1/Consorcios/${Consorcio}/nucleos`).then(
         (response)=>{
             if(response.ok){
                 return response.json()
@@ -123,7 +123,7 @@ function mostrarNucleos (listaIdNucleos){
         inputNucleo.value=nucleo.idNucleo;
         inputConsorcio.type='hidden';
         inputConsorcio.name='idConsorcio';
-        inputConsorcio.value=idConsorcio;
+        inputConsorcio.value=Consorcio;
         selectorLista.name='idLinea';
         boton.value = 'Ver más detalles';
         boton.type = 'submit';
@@ -144,7 +144,7 @@ function mostrarNucleos (listaIdNucleos){
 
 
 function mostrarLineas(nucleo, selector) {
-    fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/nucleos/${nucleo.idNucleo}/lineas`).then(
+    fetch(`http://api.ctan.es/v1/Consorcios/${Consorcio}/nucleos/${nucleo.idNucleo}/lineas`).then(
       (response) => realizarPeticionAPI(response)).then(
         (data) => {
           let lineas = data.lineas;

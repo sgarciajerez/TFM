@@ -1,0 +1,51 @@
+body{
+    background-color: var(--color-azul);
+}
+
+.tabla_container{
+    margin-top: 80px;
+}
+
+.tabla_container h1{
+    color: var(--color-blanco);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+/* Estilos para las tablas */
+table {
+    border-collapse: collapse;
+    border: 1px solid var(--color-blanco);
+    width: 1200px;
+    margin: auto;
+    font-size: 12px;
+  }
+  
+  /* Estilos para las celdas del encabezado */
+  th {
+    background-color: var(--color-rojo);
+    color: var(--color-blanco);
+    font-weight: bold;
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  /* Estilos para las celdas de datos */
+  td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  tr{
+    background-color: var(--color-blanco);
+    color: var(--color-azul);
+  }
+  
+  /* Estilos para las filas pares */
+  tr:nth-child(even) {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+  }

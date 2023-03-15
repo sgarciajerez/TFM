@@ -1,7 +1,7 @@
 const SELECTOR_CONSORCIO = document.getElementById('idConsorcio');
 const BOTON_MOSTRAR = document.getElementById('boton_mostrar_lineas');
 const listado = document.getElementById('listadoConsorcios'); //elemento ul de html
-
+const desliza = document.getElementById('parrafo_desliza');
 
 function mostrarConsorcios(){ //pide a la API la información de los Consorcios disponibles
     fetch("http://api.ctan.es/v1/Consorcios/7/consorcios").then((response) => realizarPeticionAPI(response)).then(
@@ -29,6 +29,7 @@ BOTON_MOSTRAR.addEventListener('click', () =>{
     const opcionSeleccionada = SELECTOR_CONSORCIO.selectedOptions[0].textContent;
     h2.textContent=`LISTADO DE LÍNEAS EN ${opcionSeleccionada}`
     listado.innerHTML='';  //esto vacía el listado
+    desliza.style.visibility="visible";
     mostrarLineas(idConsorcio);
 });
 
@@ -44,7 +45,7 @@ function mostrarLineas(idConsorcio) {
 
 
 function crearListado (array, idConsorcio){
-    array.forEach(element => {
+    array.forEach((element, index) => {
 
         let elementoLista = document.createElement('li');
         let parrafo = document.createElement('p');
@@ -56,7 +57,7 @@ function crearListado (array, idConsorcio){
         formulario.action='/queryLinea';
         formulario.method='post';
 
-        parrafo.textContent = `${element.nombre}`;
+        parrafo.textContent = `${index+1}. ${element.nombre}`;
 
         console.log(parrafo);
         inputLinea.type='hidden';
