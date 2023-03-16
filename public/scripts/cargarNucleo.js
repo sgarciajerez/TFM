@@ -1,6 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const Consorcio = params.get('Consorcio');
 const Linea = params.get('Linea');
+const listado = document.getElementById('listaNucleos'); //elemento ul de html
 
 function pedirHorarioAPI(){
 
@@ -35,33 +36,44 @@ function buscarIdNucleo (nucleosIda) {
                 nombre:'',
                 idNucleo:0
             }];
-            nucleosIda.forEach((element, index) => {
-                let contador=0;
-                let nombreBuscado = element.nombre
-                let encontrado;
-                
-                do{
-                    let nombreABuscar = listaNucleos[contador].nombre;
-                    encontrado=false;
-                    if (nombreBuscado == nombreABuscar){
-                        encontrado = true;
-                    } else {
-                        contador++;
+            
+            if (nucleosIda==null){
+                crearParrafoNeutro();
+            }
+            else{
+                nucleosIda.forEach((element, index) => {
+                    let contador=0;
+                    let nombreBuscado = element.nombre
+                    let encontrado;
+                    
+                    do{
+                        let nombreABuscar = listaNucleos[contador].nombre;
+                        encontrado=false;
+                        if (nombreBuscado == nombreABuscar){
+                            encontrado = true;
+                        } else {
+                            contador++;
+                        }
+                    } while (!encontrado && contador < listaNucleos.length);
+                    listaIdNucleos[index] = {
+                        nombre: nombreBuscado, //nombre
+                        idNucleo: listaNucleos[contador].idNucleo //id
                     }
-                } while (!encontrado && contador < listaNucleos.length);
-                listaIdNucleos[index] = {
-                    nombre: nombreBuscado, //nombre
-                    idNucleo: listaNucleos[contador].idNucleo //id
-                }
-            });
-            mostrarNucleos(listaIdNucleos);
+                });
+                mostrarNucleos(listaIdNucleos);
+            }
         }).catch((error) => console.log(error));
 }
 
+function crearParrafoNeutro(){
+    let parrafo = document.createElement('p');
+    parrafo.className = 'error';
+    parrafo.textContent = 'No se ha encontrado ningún núcleo para mostrar esta información. Disculpe las molestias';
+    listado.appendChild(parrafo);
+}
+
 function mostrarNucleos (listaIdNucleos){
-    console.log(listaIdNucleos);
-    const listado = document.getElementById('listaNucleos'); //elemento ul de html
-    listaIdNucleos.forEach(nucleo => {
+    listaIdNucleos.forEach((nucleo,index) => {
         let elementoLista = document.createElement('li');
         let parrafo = document.createElement('p');
         let formulario = document.createElement('form');
@@ -73,7 +85,7 @@ function mostrarNucleos (listaIdNucleos){
         formulario.action='/queryLinea';
         formulario.method='post';
 
-        parrafo.textContent = `${nucleo.nombre}`;
+        parrafo.textContent = `${index+1}. ${nucleo.nombre}`;
         inputNucleo.type='hidden';
         inputNucleo.name='idNucleo';
         inputNucleo.value=nucleo.idNucleo;
@@ -83,6 +95,7 @@ function mostrarNucleos (listaIdNucleos){
         selectorLista.name='idLinea';
         boton.value = 'Ver más detalles';
         boton.type = 'submit';
+        boton.className = 'boton_animado';
         
         mostrarLineas(nucleo, selectorLista);
 

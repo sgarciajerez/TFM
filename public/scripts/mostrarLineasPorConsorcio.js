@@ -59,7 +59,6 @@ function crearListado (array, idConsorcio){
 
         parrafo.textContent = `${index+1}. ${element.nombre}`;
 
-        console.log(parrafo);
         inputLinea.type='hidden';
         inputLinea.name='idLinea';
         inputLinea.value=element.idLinea;
@@ -69,6 +68,7 @@ function crearListado (array, idConsorcio){
         inputConsorcio.value=idConsorcio;
         boton.value = 'Ver más detalles';
         boton.type = 'submit';
+        boton.className ='boton_animado';
         
         formulario.appendChild(inputConsorcio);
         formulario.appendChild(inputLinea);

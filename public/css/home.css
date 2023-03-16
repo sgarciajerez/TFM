@@ -1,10 +1,12 @@
-body{
+/* SELECTOR HOME */
+
+.home{
+    height: 800px;
     background-image: url(/media/home_fondo.jpg);
     background-repeat:no-repeat;
-    background-size: 100% 1200px;
+    background-size: cover;
+    padding-top: 100px;
 }
-
-/* SELECTOR HOME */
 
 .home_container{
     display: grid;
@@ -13,7 +15,6 @@ body{
     "text"
     "container_selector"
     ;
-    margin-top: 230px;
 }
 
 .home_text{
@@ -152,53 +153,7 @@ body{
     font-size: 16px;
 }
 
-.home_container_boton{
-    margin: 0 auto;
-    text-align: center;
-    grid-area: boton;
-    margin-top: 25px;
-    width: 250px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--color-azul);
-    box-shadow: 5px 5px 15px var(--color-blanco);
-    color: var(--color-blanco);
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
+.boton_animado{
     visibility: hidden;
-    transition: all ease-in 0.2s;
-}
-
-.home_container_boton span{
-    font-size: 16px;
-    position: relative;
-    font-weight: bold;
-    color: var(--color-blanco);
-    z-index: 2;
-}
-
-.home_container_boton::after{
-    position: absolute;
-    content: '';
-    background-color: #FF5A5F;
-    width: 250px;
-    height: 50px;
-    top: 0;
-    right: 100%;
-    z-index: 1;
-    transition: all ease-in 0.2s;
-}
-
-.home_container_boton:hover{
-    cursor: pointer;
-    box-shadow: 5px 5px 30px var(--color-blanco);
-}
-
-.home_container_boton:hover::after{
-    right: 0;
 }
 

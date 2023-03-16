@@ -137,3 +137,130 @@ body{
     color: var(--color-blanco);
     font-weight: bold;
 }
+
+/*Estilo para los botones*/
+
+.boton_animado{
+    margin: 0 auto;
+    text-align: center;
+    grid-area: boton;
+    margin-top: 25px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--color-azul);
+    box-shadow: 5px 5px 15px var(--color-blanco);
+    color: var(--color-blanco);
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all ease-in 0.2s;
+}
+
+.boton_animado span{
+    font-size: 16px;
+    position: relative;
+    font-weight: bold;
+    color: var(--color-blanco);
+    z-index: 2;
+}
+
+.boton_animado::after{
+    position: absolute;
+    content: '';
+    background-color: #FF5A5F;
+    width: 250px;
+    height: 50px;
+    top: 0;
+    right: 100%;
+    z-index: 1;
+    transition: all ease-in 0.2s;
+}
+
+.boton_animado:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 30px var(--color-blanco);
+}
+
+.boton_animado:hover::after{
+    right: 0;
+}
+
+main{
+    margin: 0;
+}
+
+footer{
+    background-color: var(--color-rojo);
+    margin: 0;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "titulo titulo"
+    "enlaces logos"
+    "firma firma";
+
+    align-items: center;
+    border-top: 10px solid var(--color-blanco);
+}
+
+footer h2{
+    grid-area: titulo;
+    color: var(--color-blanco);
+    text-align: center;
+    margin: 0;
+}
+
+footer ul{
+    grid-area: enlaces;
+    margin:auto;
+    list-style: none;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer ul li{
+    margin: 10px 0;
+}
+footer ul li a{
+    color: var(--color-blanco);
+}
+
+footer .logotipos{
+    grid-area: logos;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .logotipos img{
+    width: 200px;
+    height: auto;
+    margin: 0 20px;
+}
+
+footer .logotipos .logo_bus{
+    width: 150px;
+}
+
+footer .firma{
+    grid-area: firma;
+    text-align: center;
+    padding: 100px 10px 10px 10px;
+    font-size: 12px;
+    color: var(--color-blanco);
+}
+
+footer .firma a{
+    text-decoration: underline;
+    color: var(--color-blanco);
+    font-weight: bold;
+}

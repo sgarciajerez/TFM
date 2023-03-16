@@ -1,5 +1,5 @@
 .header_container{
-  background-image: url(/media/linea_fondo.jpg);
+  background-image: url(../media/green-ga3db58f9b_1280.jpg);
   background-repeat:no-repeat;
   height: 500px;
   padding-top: 230px;
@@ -22,8 +22,7 @@
     grid-area: text;
     text-align: center;
     color: var(--color-blanco);
-    background-color: rgba(0, 132, 137, 0.5)
-    ;
+    background-color: var(--color-azul);
     padding: 20px;
     border-radius: 20px;
     box-shadow: 5px 5px 40px var(--color-blanco);
@@ -45,23 +44,32 @@
 .line_container button{
   grid-area: boton;
   width: 300px;
+  padding: 20px;
   margin: 100px auto;
-  padding: 10px;
-  border: 2px solid var(--color-blanco);
   background-color: var(--color-rojo);
-  border-radius: 20px;
-  color: var(--color-blanco);
-  font-size: 20px;
-  font-weight: bold;
+}
+
+.line_container button::after{
+  width: 300px;
+  height: 100px;
+  background-color: var(--color-azul);
 }
 
 .container_info{
+  width: auto;
   background-color: var(--color-blanco);
-  padding: 50px 0 25px 0;
+  padding: 20px;
+}
+.info{
+  background-image: url(../media/linea_info_fondo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px;
   width: 1000px;
-  margin: auto;
+  margin: 20px auto;
   position: relative;
   z-index: 1;
+  border-radius: 20px;
 }
 
 .container_info h2{
@@ -70,6 +78,9 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 20px;
+  background-color: var(--color-blanco);
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .container_info .container_info_container{
@@ -81,7 +92,7 @@
 
 .container_info .container_info_container .cuerpo_info{
   max-width: 300px;
-  background-color: var(--color-azul);
+  background-color: var(--color-rojo);
   margin: 15px 15px;
   padding: 30px;
   border-radius: 20px;
@@ -106,23 +117,21 @@
   margin-top: 20px;
 }
 
-.container_info .container_info_termometros button{
+.container_info .container_info_termometros a{
   margin: 0 15px;
-  width: 300px;
-  padding: 20px;
+  width: 250px;
+  padding: 15px;
   border: none;
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 20px;
 }
 
+.container_info .container_info_termometros a::after{
+  width: 300px;
+  height: 100px;
+}
 
 .container_precios{
   background-color: var(--color-azul);
-  margin: 50px 0 0 0;
+  margin:0;
   padding: 50px;
 }
 
@@ -163,9 +172,13 @@
   list-style: none;
   color: var(--color-blanco);
   width: 1000px;
-  margin: 40px auto;
+  margin: 40px auto 0 auto;
   padding-bottom:50px;
+}
 
+.container_listaNucleos .listaNucleos .error{
+  margin: auto;
+  text-align: center;
 }
 
 .container_listaNucleos .listaNucleos li{
@@ -187,9 +200,24 @@
   grid-area: selector;
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
 }
 .container_listaNucleos .listaNucleos li form select{
   width: 350px;
+  height: 50px;
+  text-align: center;
+  border-radius: 20px;
+}
+.container_listaNucleos .listaNucleos li form input{
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  text-align: center;
+  border: 1px solid var(--color-blanco);
+  margin: 0;
+  margin-left: 5px;
+  border-radius: 20px;
+  font-size: 12px;
+  width: auto;
 }
 
 /* Estilos para las tablas */

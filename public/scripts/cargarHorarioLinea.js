@@ -27,12 +27,14 @@ function crearTablaHorarios(data){
     const encabezadoFila = document.createElement("tr");
     //obtener los bloques de ida del json
     const bloquesIda = data.planificadores[0].bloquesIda;
-
+    let limite = bloquesIda.length - 1; //esto está puesto para eliminar el apartado 'Observaciones' de la tabla
     // Agregar las celdas del encabezado
-    bloquesIda.forEach((bloque) => {
-    const encabezadoCelda = document.createElement("th");
-    encabezadoCelda.innerText = bloque.nombre;
-    encabezadoFila.appendChild(encabezadoCelda);
+    bloquesIda.forEach((bloque, index) => {
+        if (index != limite){         
+            const encabezadoCelda = document.createElement("th");
+            encabezadoCelda.innerText = bloque.nombre;
+            encabezadoFila.appendChild(encabezadoCelda);
+        }
     });
 
     // Agregar la fila del encabezado a la tabla
@@ -46,10 +48,8 @@ function crearTablaHorarios(data){
         const Fila = document.createElement("tr");
         const horasDelBloque = bloqueHorario.horas;
         const frecuencia = bloqueHorario.frecuencia
-        const observaciones = bloqueHorario.observaciones
         horasDelBloque.forEach(hora => addInfoACelda(hora, Fila)); //iteramos cada hora en el bloque y la añadimos a una celda
         addInfoACelda(frecuencia, Fila);
-        addInfoACelda(observaciones, Fila);
         tabla.appendChild(Fila);  //agregar a la tabla cada fila
     });
 }
