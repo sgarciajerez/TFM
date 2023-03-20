@@ -3,7 +3,11 @@ body{
 }
 
 .tabla_container{
-    margin-top: 80px;
+  padding: 100px;
+}
+
+.tabla_container{
+    margin-top: 50px;
 }
 
 .tabla_container h1{
@@ -11,7 +15,8 @@ body{
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-
+    margin-bottom: 50px;
+    font-size: 40px;
 }
 
 /* Estilos para las tablas */

@@ -99,6 +99,7 @@ main{
     color: var(--color-blanco);
     margin-top:5px;
     padding: 20px;
+    display: none;
 }
 
 .container_listado h2{
