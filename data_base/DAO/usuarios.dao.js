@@ -29,7 +29,6 @@ function buscarUsuarioPorEmail(usuario){
         try {
             conexion.query(query, [usuario.email], (errors, result) => {
             if (errors){
-                console.log('hola');
                 throw errors
             } if (result.length > 0) {
                 const usuarioBD = new Usuario (result[0]['username'], result[0]['email'], result[0]['password']);

@@ -3,17 +3,21 @@
 </head>
 
 <main class="register_form">
-    <form action="/usuarios" method="post" id="formulario_registro">
-        <label for="username">Nombre</label>
-        <input type="text" id="username" name="username" required>
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="correo" name="email" required>
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" required>
-        <ul id="errores_container">      
-        </ul>
-        <button type="submit" id="boton_registro">Registrarse</button>
-    </form>
+    <section class="container_form">
+        <form action="/usuarios" method="post" id="formulario_registro">
+            <h1>REGÍSTRATE GRATIS</h1>
+            <label for="username">Nombre</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="correo" name="email" required>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+            <ul id="errores_container">      
+            </ul>
+            <button type="submit" id="boton_registro">Registrarse</button>
+            <p>Si ya dispones de usuario, pincha <a href="/login">aquí</a></p>
+        </form>
+    </section>
 </main>
 
 <script src="/scripts/formulario.js"></script>

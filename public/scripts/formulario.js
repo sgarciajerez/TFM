@@ -1,11 +1,25 @@
 const formulario = document.getElementById("formulario_registro");
-const botonEnviar = document.getElementById("boton_registro");
+const botonRegistro = document.getElementById("boton_registro");
+const botonLogin = document.getElementById('boton_login');
 const contenedorErrores = document.getElementById('errores_container');
 
-botonEnviar.addEventListener("click", function(evento) {
-  evento.preventDefault(); //para evitar que se envíe solo
-  limpiarErrores();
+if (botonRegistro!=null){  
+  botonRegistro.addEventListener("click", function(evento) {
+    evento.preventDefault(); //para evitar que se envíe solo
+    limpiarErrores();
+    const urlRegistro = '/usuarios'; //url de la petición
+    peticionAPI(urlRegistro);
+  });
+} else {
+  botonLogin.addEventListener("click", function(evento) {
+    evento.preventDefault(); //para evitar que se envíe solo
+    limpiarErrores();
+    const urlLogin = '/usuarios/login'; //url de la petición
+    peticionAPI(urlLogin);
+  });  
+}
 
+function peticionAPI (url){
   // Recopilación de datos del formulario a través de FormData
   let datosFormulario = new FormData(formulario);
 
@@ -15,12 +29,8 @@ botonEnviar.addEventListener("click", function(evento) {
     datosJSON[clave] = valor;
   });
 
-  console.log(datosFormulario);
-
-  console.log(datosJSON);
-
   // A través de fetch enviamos los datos JSON con una solicitud HTTP
-  fetch("/usuarios", {
+  fetch(url, {
     method: "POST",
     body: JSON.stringify(datosJSON), //para volverlos un JSON
     headers: {
@@ -30,6 +40,7 @@ botonEnviar.addEventListener("click", function(evento) {
   .then(function(respuesta) {
     if(respuesta.ok){
         mostrarRespuestaApi(respuesta);
+        redireccionarPagina();
     }else{
         mostrarRespuestaApi(respuesta);
     }
@@ -37,7 +48,7 @@ botonEnviar.addEventListener("click", function(evento) {
   .catch(function(error) {
     console.log(error);
   });
-});
+}
 
 function limpiarErrores() {
     while (contenedorErrores.firstChild) {
@@ -57,6 +68,17 @@ function mostrarRespuestaApi (respuesta) {
             })
         } else { //sino, mostramos directamente el mensaje
             alert(data.msg);
+            if(botonLogin!=null){
+              localStorage.setItem('token', data.token);
+            }
         }
     });
+}
+
+function redireccionarPagina(){
+  if(botonLogin!=null){
+    window.location.href="/mi-perfil";
+  } else {
+    window.location.href="/login";
+  }
 }
