@@ -13,8 +13,6 @@ function pedirHorarioAPI(){
             }
         }).then((data) =>{
             crearTablaHorarios(data);
-            cargarNucleos(data);
-            console.log(data);
         }).catch((error) => console.log(error));
 }
 
@@ -27,14 +25,13 @@ function crearTablaHorarios(data){
     const encabezadoFila = document.createElement("tr");
     //obtener los bloques de ida del json
     const bloquesIda = data.planificadores[0].bloquesIda;
-    let limite = bloquesIda.length - 1; //esto está puesto para eliminar el apartado 'Observaciones' de la tabla
     // Agregar las celdas del encabezado
-    bloquesIda.forEach((bloque, index) => {
-        if (index != limite){         
+    bloquesIda.forEach((bloque) => {
             const encabezadoCelda = document.createElement("th");
             encabezadoCelda.innerText = bloque.nombre;
-            encabezadoFila.appendChild(encabezadoCelda);
-        }
+            if(bloque.nombre!=='Observaciones'){ //para eliminar la columna de Observaciones de la tabla
+                encabezadoFila.appendChild(encabezadoCelda);
+            }
     });
 
     // Agregar la fila del encabezado a la tabla
