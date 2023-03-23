@@ -70,14 +70,31 @@ function mostrarRespuestaApi (respuesta) {
             alert(data.msg);
             if(botonLogin!=null){
               localStorage.setItem('token', data.token);
+              enviarToken();
             }
         }
     });
 }
 
+function enviarToken(){
+  const token = localStorage.getItem('token');
+  fetch("/mi-perfil", {
+    headers: {
+      "Authorization": token
+    }
+  })
+  .then(response => {
+      if(response.ok){
+      }
+  })
+  .catch(error => {
+    // manejar el error
+  });
+}
+
 function redireccionarPagina(){
   if(botonLogin!=null){
-    window.location.href="/mi-perfil";
+    window.location.href="/mi-usuario";
   } else {
     window.location.href="/login";
   }

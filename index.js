@@ -19,10 +19,12 @@ app.use(express.static('public'));
 //RUTAS
 const usuariosRouter = require('./routes/usuariosRoutes');
 const lineasRouter = require('./routes/lineasRoutes');
+const { validarJwt } = require('./middlewares/jwt-validator.middleware');
 
 app.use('/usuarios' , usuariosRouter);
 app.use('/lineas' , lineasRouter);
-  
+
+//VIEWS
 app.get ('/home', (req, res) =>{
     res.render ('home')
 })
@@ -44,9 +46,16 @@ app.get ('/linea', (req, res) =>{
 app.get ('/horario', (req, res) =>{
     res.render('horario');
 })
-app.get('/mi-perfil', (req, res) =>{
-    res.render('mi-perfil');
+
+app.get ('/mi-usuario', (req, res) => {
+    res.render('mi-usuario');
 })
+
+app.get('/mi-perfil', validarJwt, (req, res) => {
+    res.redirect('/mi-usuario');
+})
+
+//QUERY PARA REDIRECT A /LINEA
 
 app.post('/queryLinea', (req, res) => {
     const idConsorcio= req.body.idConsorcio;

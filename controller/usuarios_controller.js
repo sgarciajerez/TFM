@@ -40,7 +40,6 @@ function login (peticion = request, respuesta = response) {
             })
         }
     })
-
 }
  
 function crearUsuario (peticion = request, respuesta = response) {

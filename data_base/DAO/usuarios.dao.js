@@ -45,25 +45,6 @@ function buscarUsuarioPorEmail(usuario){
     })
 }
 
-// function insertarUsuario(usuario){
-
-//     let query = 'INSERT INTO usuarios (username, email, password) VALUES (?, ?, ?)';
-
-//     return new Promise ((resolve, reject) =>{
-//         try {
-    
-//             conexion.query(query, [usuario.username, usuario.email, usuario.password], (errors, result) => {
-//                 if (errors){
-//                     throw errors;
-//                 }
-//                 resolve();  
-//             });   
-//         } catch (error) {
-//             reject();
-//         }
-//     })
-// }
-
 module.exports = {
     readUsuarios,
     buscarUsuarioPorEmail
