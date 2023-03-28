@@ -1,21 +1,20 @@
 const { conexion } = require('../database-config');
 const Usuario = require('../../modelo/usuario');
 
-function readUsuarios(){
-    let query = `SELECT username, email from usuarios`;
-
+function readUsuario(idUsuario){
+    let query = `SELECT username, email from usuarios WHERE id = ?`;
     return new Promise ((resolve, reject) =>{
         try {
-            conexion.query(query, (errors, result) => {
+            conexion.query(query, idUsuario, (errors, result) => {
                 if (errors){
                     throw errors;
                 }
-                let usuarios = [];
-                result.forEach(usuario => {
-                    usuarios.push(new Usuario(usuario['username'], usuario['email'], '')) //agregamos cada persona al array para obtenerlas
+                let usuario = [];
+                result.forEach(user => {
+                    usuario.push(new Usuario(user['username'], user['email'], '')) //agregamos cada persona al array para obtenerlas
                     //dejamos el campo de password vacío para que no se vea
                 });
-                resolve(usuarios);  
+                resolve(usuario);  
             });   
         } catch (error) {
             reject();
@@ -24,7 +23,7 @@ function readUsuarios(){
 }
 
 function buscarUsuarioPorEmail(usuario){
-    let query = `SELECT email, password from usuarios where email=?`
+    let query = `SELECT id, username, email, password from usuarios where email=?`
     return new Promise ((resolve, reject ) => {
         try {
             conexion.query(query, [usuario.email], (errors, result) => {
@@ -33,6 +32,7 @@ function buscarUsuarioPorEmail(usuario){
             } if (result.length > 0) {
                 const usuarioBD = new Usuario (result[0]['username'], result[0]['email'], result[0]['password']);
                 usuarioBD.id = result[0]['id']
+                console.log(usuarioBD);
                 resolve(usuarioBD);
             } else {
                 reject();
@@ -46,6 +46,6 @@ function buscarUsuarioPorEmail(usuario){
 }
 
 module.exports = {
-    readUsuarios,
+    readUsuario,
     buscarUsuarioPorEmail
 }

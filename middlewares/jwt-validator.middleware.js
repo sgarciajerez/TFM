@@ -10,8 +10,11 @@ function validarJwt (peticion, respuesta, next) {
         return respuesta.status(401).json(errorRespuesta);
     } else{
         try {
-            const {id} = jwt.verify(token, process.env.JWT_SECRET);
-            peticion.idUsuario = id;
+            const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+            console.log('Token decodificado:', decodedToken);
+            peticion.idUsuario = decodedToken.id;
+            // const {id} = jwt.verify(token, process.env.JWT_SECRET);
+            // peticion.idUsuario = id;
             next()
         } catch(error) {
             return respuesta.status(401).json(errorRespuesta);

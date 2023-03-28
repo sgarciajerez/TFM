@@ -6,10 +6,10 @@ const {validarJwt} = require ('../middlewares/jwt-validator.middleware')
 //RUTA /usuarios
 
 //controlador
-const {crearUsuario, getUsuarios, login} = require('../controller/usuarios_controller');
+const {crearUsuario, getUsuario, login} = require('../controller/usuarios_controller');
 
 
-router.get ('/', getUsuarios);
+router.post ('/usuario', getUsuario);
 router.post('/', 
 [    
     check('username', 'El nombre de usuario no puede estar vacío').notEmpty(),

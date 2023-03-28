@@ -1,20 +1,24 @@
-
 <head>
     <link rel="stylesheet" href="/css/mi-perfil.css">
 </head>
-<main class="container">
+<main class="contenido_usuario">
     <section class="username">
-        <h1 id="bienvenida">BIENVENIDO USUARIO</h1>
+        <h1>BIENVENIDO DE NUEVO <span class="username_content"></span></h1>
     </section>
     <section class="lineas">
         <h2>LÍNEAS ALMACENADAS</h2>
         <ul id="listado_lineas"></ul>
     </section>
     <section>
-        <h2>Tu información de usuario</h2>
-        <ul id="info_user"></ul>
+        <h2><span class="username_content"></span>, esta es tu información de usuario</h2>
+        <ul class="info_user">
+            <li>Tu nombre de usuario: <span class="username_content"></span></li>
+            <li>Tu email: <span class="email_content"></span></li>
+        </ul>
     </section>
     <section>
         <button id="cerrar_sesion">Cerrar Sesión</button>
     </section>
+    <script src="/scripts/cargarUsuario.js"></script>
+    <script src="/scripts/cargarLineasUsuario.js"></script>
 </main>

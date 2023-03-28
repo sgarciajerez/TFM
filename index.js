@@ -52,7 +52,10 @@ app.get ('/mi-usuario', (req, res) => {
 })
 
 app.get('/mi-perfil', validarJwt, (req, res) => {
-    res.redirect('/mi-usuario');
+    let user = {
+        id: req.idUsuario
+    }
+    res.send(user);
 })
 
 //QUERY PARA REDIRECT A /LINEA

@@ -2,7 +2,7 @@ const { conexion } = require('../data_base/database-config');
 const { response, request } = require('express');
 const Usuario = require('../modelo/usuario');
 const {validationResult} = require('express-validator');
-const {readUsuarios, buscarUsuarioPorEmail} = require('../data_base/DAO/usuarios.dao');
+const {readUsuario, buscarUsuarioPorEmail} = require('../data_base/DAO/usuarios.dao');
 const  {crearJWT}= require('../helpers/jwt.helper');
 const {internalServerError} = require ('../helpers/utility.helper');
 
@@ -22,7 +22,7 @@ function login (peticion = request, respuesta = response) {
                 crearJWT(usuarioValidado.id).then((token) => {
                     respuesta.status(202).json({
                         msg: "Login realizado con éxito",
-                        token
+                        token,
                     })
                 }
                 ).catch((error) => internalServerError(respuesta))
@@ -100,15 +100,17 @@ function crearUsuario (peticion = request, respuesta = response) {
     }
 }
 
-function getUsuarios (peticion = request, respuesta = response) {
-    return readUsuarios().then(
-        (usuarios) => respuesta.status(200).json(usuarios)
+function getUsuario (peticion = request, respuesta = response) {
+    // const idUsuario = peticion.idUsuario;
+    const {idUsuario} = peticion.body;
+    return readUsuario(idUsuario).then(
+        (usuario) => respuesta.status(200).json(usuario)
     ).catch(() => internalServerError(respuesta)
     );
 }
 
 module.exports = {
     crearUsuario,
-    getUsuarios,
+    getUsuario,
     login
 }
