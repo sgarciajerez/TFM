@@ -14,6 +14,7 @@
     font-family: 'Montserrat','Verdana',sans-serif;
 }
 
+
 body{
     margin: 0;
     font-size: 16px;
@@ -28,6 +29,8 @@ body{
     margin: 0 auto;
     top:0;
     right: 0;
+    background-color: var(--color-azul);
+    box-shadow: 1px 1px 10px black;
 }
 
 #menu_abierto ul{
@@ -49,9 +52,12 @@ body{
     list-style: none;
     outline: none;
 }
+#menu_abierto ul li span{
+    margin-right: 3px;
+}
 
 #menu_abierto ul a:hover{
-    background-color: var(--color-azul);
+    background-color: var(--color-rojo);
     transition: all ease-in 0.2s;
 }
 
@@ -228,6 +234,9 @@ footer ul{
 
 footer ul li{
     margin: 10px 0;
+}
+footer ul li span{
+    margin-right: 3px;
 }
 footer ul li a{
     color: var(--color-blanco);

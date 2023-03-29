@@ -41,12 +41,21 @@
   margin-top: 10px;
 }
 
-.line_container button{
+.line_container .container_buttons{
   grid-area: boton;
-  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.line_container button{
   padding: 20px;
   margin: 100px auto;
   background-color: var(--color-rojo);
+}
+
+.line_container .container_buttons span{
+  margin-right: 3px;
 }
 
 .line_container button::after{

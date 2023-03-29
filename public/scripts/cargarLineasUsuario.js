@@ -77,7 +77,7 @@ function pintarNombreLinea(nombreLinea, idConsorcio, idLinea){
     inputConsorcio.type='hidden';
     inputConsorcio.name='idConsorcio';
     inputConsorcio.value=idConsorcio;
-    boton.value = 'Ver más detalles';
+    boton.value = 'VER';
     boton.type = 'submit';
     boton.className = 'boton_animado';
         

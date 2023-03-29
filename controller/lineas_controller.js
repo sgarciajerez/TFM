@@ -8,7 +8,6 @@ const {obtenerLineasDeUsuario} = require('../data_base/DAO/lineas.dao');
 function addLineaFavorita(peticion = request, respuesta = response) {
     const idUsuario = peticion.idUsuario;
     const {idConsorcio, idLinea} = peticion.body; //hace falta el dato del idDelConsorcio para cargar el enlace de la API
-
     try {
         comprobarSiExisteLinea(idUsuario, idConsorcio, idLinea);  //solo voy a dejar guardar al usuario si no ha guardado antes la Línea
     } catch (error) {
@@ -45,7 +44,6 @@ function addLineaFavorita(peticion = request, respuesta = response) {
             }
         })
     }    
-
 }
 
 function obtenerMisLineas (peticion = request, respuesta = response) { //me devuelve un json con las líneas del usuario que hace la petición
