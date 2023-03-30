@@ -131,3 +131,22 @@
     margin: auto;
     text-align: center;
 }
+
+
+/*Diseño Responsive*/
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1080px) {
+
+}
+
+@media (max-width: 780px) {
+
+}
+
+@media (max-width: 550px) {
+
+}

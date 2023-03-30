@@ -1,8 +1,8 @@
 .header_container{
   background-image: url(../media/green-ga3db58f9b_1280.jpg);
   background-repeat:no-repeat;
-  height: 500px;
-  padding-top: 230px;
+  height: 31.25em;
+  padding-top: 14.375em;
   box-shadow: 5px 5px 20px var(--color-azul);
   position: relative;
   z-index: 2;
@@ -10,7 +10,7 @@
 
 .line_container{
     display: grid;
-    width: 1000px;
+    width: 62.5em;
     margin: auto;
     grid-template-areas:
     "text"
@@ -23,9 +23,9 @@
     text-align: center;
     color: var(--color-blanco);
     background-color: var(--color-azul);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 40px var(--color-blanco);
+    padding: 1.25em;
+    border-radius: 1.25em;
+    box-shadow: 5px 5px 2.5em var(--color-blanco);
 }
 
 .line_tittle h1{
@@ -36,9 +36,9 @@
 
 .line_tittle h2{
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25em;
   margin:0;
-  margin-top: 10px;
+  margin-top: 0.625em;
 }
 
 .line_container .container_buttons{
@@ -49,36 +49,36 @@
 }
 
 .line_container button{
-  padding: 20px;
-  margin: 100px auto;
+  padding: 1.25em;
+  margin: 6.25em auto;
   background-color: var(--color-rojo);
 }
 
 .line_container .container_buttons span{
-  margin-right: 3px;
+  margin-right: 0.1875em;
 }
 
 .line_container button::after{
-  width: 300px;
-  height: 100px;
+  width: 18.75em;
+  height: 6.25em;
   background-color: var(--color-azul);
 }
 
 .container_info{
   width: auto;
   background-color: var(--color-blanco);
-  padding: 20px;
+  padding: 1.25em;
 }
 .info{
   background-image: url(../media/linea_info_fondo.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 50px;
-  width: 1000px;
-  margin: 20px auto;
+  padding: 3.125em;
+  width: 62.5em;
+  margin: 1.25em auto;
   position: relative;
   z-index: 1;
-  border-radius: 20px;
+  border-radius: 1.25em;
 }
 
 .container_info h2{
@@ -86,10 +86,10 @@
   color: var(--color-azul);
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
   background-color: var(--color-blanco);
-  padding: 10px;
-  border-radius: 20px;
+  padding: 0.625em;
+  border-radius: 1.25em;
 }
 
 .container_info .container_info_container{
@@ -100,16 +100,16 @@
 }
 
 .container_info .container_info_container .cuerpo_info{
-  max-width: 300px;
+  max-width: 18.75em;
   background-color: var(--color-rojo);
-  margin: 15px 15px;
-  padding: 30px;
-  border-radius: 20px;
+  margin: 15px 0.9375em;
+  padding: 1.875em;
+  border-radius: 1.25em;
 }
 
 .container_info .container_info_container .cuerpo_info h3{
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
   color: var(--color-blanco);
   font-weight: bold;
 }
@@ -123,32 +123,32 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 1.25em;
 }
 
 .container_info .container_info_termometros a{
-  margin: 0 15px;
-  width: 250px;
-  padding: 15px;
+  margin: 0 0.9375em;
+  width: 15.625em;
+  padding: 0.9375em;
   border: none;
 }
 
 .container_info .container_info_termometros a::after{
-  width: 300px;
-  height: 100px;
+  width: 18.75em;
+  height: 6.25em;
 }
 
 .container_precios{
   background-color: var(--color-azul);
   margin:0;
-  padding: 50px;
+  padding: 3.125em;
 }
 
 .container_precios div{
-  width: 1000px;
+  width: 62.5em;
   background-color: var(--color-blanco);
-  padding: 30px;
-  border-radius: 20px;
+  padding: 1.875em;
+  border-radius: 1.25em;
   margin: auto;
 }
 
@@ -156,7 +156,7 @@
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 1.875em;
   color: var(--color-azul);
 }
 
@@ -169,7 +169,7 @@
 }
 
 .container_listaNucleos h2{
-  padding-top: 30px;
+  padding-top: 1.875em;
   margin: 0;
   text-align: center;
   color: var(--color-blanco);
@@ -180,9 +180,9 @@
 .container_listaNucleos .listaNucleos{
   list-style: none;
   color: var(--color-blanco);
-  width: 1000px;
-  margin: 40px auto 0 auto;
-  padding-bottom:50px;
+  width: 62.5em;
+  margin: 2.5em auto 0 auto;
+  padding-bottom:3.125em;
 }
 
 .container_listaNucleos .listaNucleos .error{
@@ -196,14 +196,14 @@
   grid-template-areas: 
   "nombre selector"
   ;
-  margin: 20px 0;
+  margin: 1.25em 0;
 }
 
 .container_listaNucleos .listaNucleos li p{
   grid-area: nombre;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 0.3125em;
 }
 .container_listaNucleos .listaNucleos li form{
   grid-area: selector;
@@ -212,20 +212,20 @@
   align-items: center;
 }
 .container_listaNucleos .listaNucleos li form select{
-  width: 350px;
-  height: 50px;
+  width: 21.875em;
+  height: 3.125em;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 1.25em;
 }
 .container_listaNucleos .listaNucleos li form input{
   background-color: var(--color-rojo);
   color: var(--color-blanco);
   text-align: center;
-  border: 1px solid var(--color-blanco);
+  border: 0.0625em solid var(--color-blanco);
   margin: 0;
-  margin-left: 5px;
-  border-radius: 20px;
-  font-size: 12px;
+  margin-left: 0.3125em;
+  border-radius: 1.25em;
+  font-size: 0.75em;
   width: auto;
 }
 
@@ -234,24 +234,24 @@ table {
     border-collapse: collapse;
     width: 70%;
     margin: auto;
-    font-size: 12px;
+    font-size: 0.75em;
   }
   
   /* Estilos para las celdas del encabezado */
   th {
     background-color: var(--color-rojo);
-    border: 1px solid var(--color-azul);
+    border: 0.0625em solid var(--color-azul);
     color: var(--color-blanco);
     font-weight: bold;
-    padding: 5px;
-    font-size: 12px;
+    padding: 0.3125em;
+    font-size: 0.75em;
     text-align: center;
   }
   
   /* Estilos para las celdas de datos */
   td {
-    border: 1px solid var(--color-azul);
-    padding: 4px;
+    border: 0.0625em solid var(--color-azul);
+    padding: 0.25em;
     text-align: center;
   }
 
@@ -265,4 +265,141 @@ table {
     background-color: var(--color-azul);
     color: var(--color-blanco);
   }
+
+  
+/*Diseño Responsive*/
+
+@media (max-width: 1200px) {
+
+  .line_container{
+    width: auto;
+    margin: auto 25px;
+  }
+  .info{
+    width: auto;
+  }
+
+  .container_precios div{
+    width: auto;
+  }
+
+  .container_listaNucleos .listaNucleos{
+    width: auto;
+    padding: 3em;
+  }
+
+  .container_listaNucleos .listaNucleos {
+    margin-top:0;
+  } 
+}
+
+@media (max-width: 1080px) {
+  .line_container{
+    min-width: 600px;
+  }
+  .line_container h1{
+    font-size: 24px;
+  }
+  .line_container h2{
+    font-size: 16px;
+  }
+
+  .info{
+    min-width: 600px;
+  }
+
+  .info h2{
+    font-size: 16px;
+  }
+
+  .info .container_info_container{
+    flex-wrap: wrap;
+  }
+
+  .info .container_info_termometros{
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 780px) {
+  .line_container{
+    min-width: 450px;
+  }
+  .line_container button{
+    margin: 50px auto;
+    font-size: 14px;
+  }
+  .info{
+    min-width: 450px;
+    padding: 1em;
+  }
+
+  .info .cuerpo_info {
+    font-size: 16px;
+  }
+
+  .info .container_info_termometros a{
+    margin: 15px auto;
+    font-size: 16px;
+  }
+
+  .container_precios{
+    display: none;
+  }
+
+  .container_listaNucleos .listaNucleos li {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "nombre" 
+    "selector";
+    margin: 1.25em auto;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .container_listaNucleos .listaNucleos li p{
+    text-align: center;
+  }
+
+  .container_listaNucleos .listaNucleos li form{
+    margin: auto;
+    flex-direction: column;
+  }
+  .container_listaNucleos .listaNucleos li form input{
+    margin-top: 10px;
+  }
+  .container_listaNucleos .listaNucleos li form select{
+    width: 400px;
+  }
+
+}
+
+@media (max-width: 550px) {
+  .line_container{
+    min-width: 300px;
+  }
+
+  .line_container h1{
+    font-size: 22px;
+  }
+  .line_container h2{
+    font-size: 14px;
+  }
+  .line_container button{
+    margin: 20px auto;
+  }
+  .info{
+    min-width: 280px;
+  }
+
+  .info h2{
+    font-size: 14px;
+  }
+
+  .container_listaNucleos .listaNucleos li form select{
+    width: 200px;
+  }
+
+}
   

@@ -89,3 +89,21 @@
 #boton_intentar {
     visibility: hidden;
 }
+
+/*Diseño Responsive*/
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1080px) {
+
+}
+
+@media (max-width: 780px) {
+
+}
+
+@media (max-width: 550px) {
+
+}
