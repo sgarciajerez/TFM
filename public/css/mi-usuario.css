@@ -2,18 +2,18 @@
     background-image: url(/media/miusuario_fondo.jpg);
     background-repeat:no-repeat;
     background-size: cover;
-    height: 800px;
-    padding: 20px 0 150px 0;
+    height: auto;
+    padding: 1.25em 0 9.375em 0;
 }
 
 .contenido_usuario .username{
-    width: 800px;
+    width: 50em;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 6.25em;
     background-color: var(--color-azul);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 40px var(--color-blanco);
+    padding: 1.25em;
+    border-radius: 1.25em;
+    box-shadow: 0.3125em 0.3125em 2.5em var(--color-blanco);
     display: grid;
     grid-template-areas:
     "text"
@@ -25,7 +25,7 @@
     text-align: center;
     color: var(--color-blanco);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 1.875em;
     margin: 0;
     text-transform: uppercase;
 }
@@ -33,17 +33,16 @@
 .contenido_usuario .username span{
     color: var(--color-blanco);
     font-weight: bold;
-    font-size: 30px;
     text-transform: uppercase;
 }
 
 .container_details{
-    width: 1000px;
+    width: 62.5em;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 3.125em;
     background-color: var(--color-blanco);
-    padding: 10px;
-    border-radius: 20px;
+    padding: 0.625em;
+    border-radius: 1.25em;
     color: var(--color-azul);
     display: flex;
     flex-wrap: wrap;
@@ -53,21 +52,22 @@
 .container_details .lineas{
     margin: auto;
     width: 100%;
-    padding: 20px;
+    padding: 1.25em;
     background-color: var(--color-azul);
-    border-radius: 20px;
+    border-radius: 1.25em;
     color: var(--color-blanco);
 }
 
 .container_details .lineas h2{
     text-align: center;
     margin: 0;
-    margin-top: 10px;
+    margin-top: 0.625em;
 }
 
 .container_details .lineas ul{
     display: flex;
     list-style: none;
+    padding: 0;
     flex-direction: column;
     margin: 0;
 }
@@ -76,7 +76,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 1.25em;
 }
 .container_details .lineas p{
     text-transform: uppercase;
@@ -84,27 +84,27 @@
 }
 
 .container_details .lineas .boton_animado{
-    margin: 0 20px;
-    font-size: 12px;
-    width: 50px;
+    margin: 0 1.25em;
+    font-size: 0.75em;
+    width: 3.125em;
     background-color: var(--color-rojo);
 }
 
 .info{
     margin: auto;
-    width: 500px;
+    width: 31.25em;
     background-color: var(--color-blanco);
-    padding: 20px;
-    margin: 20px auto;
-    border: solid 10px var(--color-azul);
-    border-radius: 20px;
+    padding: 1.25em;
+    margin: 1.25em auto;
+    border: solid 0.625em var(--color-azul);
+    border-radius: 1.25em;
     color: var(--color-azul);
 }
 
 .info h2{
     text-align: center;
     margin: 0;
-    margin-top: 10px;
+    margin-top: 0.625em;
     text-transform: uppercase;
 }
 
@@ -112,17 +112,18 @@
     display: flex;
     list-style: none;
     flex-direction: column;
-    margin: 20px;
+    margin: 1.25em;
     text-align: center;
+    padding: 0;
 }
 
 .info li{
-    margin-top: 10px;
+    margin-top: 0.625em;
 }
 
 .boton{
     width: 100%;
-    margin-top: 10px;
+    margin-top: 0.625em;
     display: flex;
     justify-content: center;
 }
@@ -140,13 +141,45 @@
 }
 
 @media (max-width: 1080px) {
+    .contenido_usuario .username{
+        width: auto;
+        margin: 0 30px;
+        margin-top: 6.25em;
+    }
 
+    .container_details {
+        width: auto;
+        margin: 0 30px;
+        margin-top: 3.125em;
+    }
+
+    .info{
+        width: auto;
+        margin: 1.25em 30px;
+    }
 }
 
 @media (max-width: 780px) {
 
+    .container_details .lineas li {
+        justify-content: space-between;
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 20px;
+    }
+
+    .info{
+        padding: 10px;
+    }
+
+    .info ul{
+        margin: 10px;
+    }
+
 }
 
 @media (max-width: 550px) {
-
+    .contenido_usuario .username{
+        font-size: 14px;
+    }
 }

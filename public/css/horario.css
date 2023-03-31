@@ -3,11 +3,11 @@ body{
 }
 
 .tabla_container{
-  padding: 100px;
+  padding: 6.25em;
 }
 
 .tabla_container{
-    margin-top: 50px;
+    margin-top: 3.125em;
 }
 
 .tabla_container h1{
@@ -15,17 +15,27 @@ body{
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 50px;
-    font-size: 40px;
+    font-size: 2.5em;
 }
 
 /* Estilos para las tablas */
+
+.tabla_container .container{
+  width: 62.5em;
+  margin: auto;
+  padding: 1.25em;
+  padding-bottom: 2em;
+  border: 0.3125em solid white;
+  border-radius: 1.25em;
+  overflow-x: scroll;
+  background-color: white;
+}
+
 table {
     border-collapse: collapse;
-    border: 1px solid var(--color-blanco);
-    width: 1200px;
-    margin: auto;
-    font-size: 12px;
+    font-size: 14px;
+    width: 100%;
+    border: solid 0.0625em var(--color-azul);
   }
   
   /* Estilos para las celdas del encabezado */
@@ -33,14 +43,14 @@ table {
     background-color: var(--color-rojo);
     color: var(--color-blanco);
     font-weight: bold;
-    padding: 10px;
-    font-size: 12px;
+    padding: 0.625em;
+    font-size: 14px;
     text-align: center;
   }
   
   /* Estilos para las celdas de datos */
   td {
-    padding: 10px;
+    padding: 0.625em;
     text-align: center;
   }
 
@@ -59,17 +69,28 @@ table {
 /*Diseño Responsive*/
 
 @media (max-width: 1200px) {
-
-}
-
-@media (max-width: 1080px) {
-
+  .tabla_container .container {
+    width: auto;
+    margin: 0 30px;
+  }
+  
 }
 
 @media (max-width: 780px) {
 
+  .tabla_container{
+    padding: 20px;
+    padding-bottom: 40px;
+  }
+
 }
 
 @media (max-width: 550px) {
+  table{
+    font-size: 10px;
+  }
 
+  table th{
+    font-size: 12px;
+  }
 }
