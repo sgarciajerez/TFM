@@ -1,3 +1,10 @@
+/**
+ * Este código define la clase Usuario con las propiedades id, username, email y password.
+ * En el constructor se reciben los argumentos username, email y password.
+ * En el constructor, se asignan los valores ya mencionados.
+ * Por último, se exporta la clase.
+ */
+
 class Usuario {
     id;
     username;

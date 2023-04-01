@@ -1,3 +1,8 @@
+/**
+ * Este código exporta las funciones crearUsuario, getUsuario y login. 
+ * Las funciones manejan las solicitudes HTTP con Express.
+ */
+
 const { conexion } = require('../data_base/database-config');
 const { response, request } = require('express');
 const Usuario = require('../modelo/usuario');
@@ -6,10 +11,15 @@ const {readUsuario, buscarUsuarioPorEmail} = require('../data_base/DAO/usuarios.
 const  {crearJWT}= require('../helpers/jwt.helper');
 const {internalServerError} = require ('../helpers/utility.helper');
 
+// La función login maneja una solicitud POST para autenticar a un usuario registrado en la BD. 
+// La función extrae el email y password de la solicitud HTTP para hacer la búsqueda
+// Si la búsqueda es exitosa, se crea un token JWT y se envía al cliente como respuesta. 
+// Si la contraseña no coincide, se devuelve un error y un 404. 
+// Por último, si la búsqueda de usuario falla, se devuelve un mensaje de error y un HTTP 500.
 
 function login (peticion = request, respuesta = response) {
     const validador = validationResult(peticion);
-    if(validador.errors.length>0){
+    if(validador.errors.length>0){ //Si el validador encuentra errores, entonces no se ejecuta la función 
         return respuesta.status(400).json(validador.errors);
     }
 
@@ -41,14 +51,21 @@ function login (peticion = request, respuesta = response) {
         }
     })
 }
+
+// La función crearUsuario maneja una solicitud POST para crear un nuevo usuario en la BD. 
+// La función extrae el username, email y password del body y los utiliza para crear una instancia de la clase Usuario. 
+// Después, verifica que no hay ningún usuario con el mismo email en la BD.
+// Si no hay, la función inserta el nuevo usuario en la BD y crea un token JWT para enviar al cliente como respuesta. 
+// Si se produce un error, se devuelve un HTTP 500.
  
 function crearUsuario (peticion = request, respuesta = response) {
     const validador = validationResult(peticion);
 
-    if(validador.errors.length>0){
+    if(validador.errors.length>0){ //Si el validador encuentra errores, entonces no se ejecuta la función 
         return respuesta.status(400).json(validador.errors);
     }
     
+    //Extraemos info del body
     const {username, email, password} = peticion.body;
     const usuario = new Usuario (username, email, password);
 
@@ -58,8 +75,9 @@ function crearUsuario (peticion = request, respuesta = response) {
         internalServerError(respuesta);
     }
 
-    //FUNCIONES
+    //FUNCIONES EN CREAR USUARIO
 
+    // Verificamos que no exista el usuario. 
     function comprobarSiExisteEmail(usuario){
         let query = `SELECT email from usuarios where email=?`;
         conexion.query(query, [usuario.email], (errors, result) => {
@@ -71,7 +89,7 @@ function crearUsuario (peticion = request, respuesta = response) {
                     msg: `Ya está registrado el email ${usuario.email}`,
                     error: `Intente iniciar sesión`
                 })
-            } else {
+            } else { //Si no existe, lo insertamos
                 insertarUsuario (usuario);
             }
         })
@@ -100,6 +118,11 @@ function crearUsuario (peticion = request, respuesta = response) {
     }
 }
 
+// getUsuario maneja una solicitud GET para devolver a un usuario.
+// Se extrae el id del usuario del body y se utiliza para buscarlo en la BD. 
+// Si se encuentra, la función retorna información del usuario en formato JSON. 
+// Si no existe, se lanza un error y un HTTP 500.
+
 function getUsuario (peticion = request, respuesta = response) {
     // const idUsuario = peticion.idUsuario;
     const {idUsuario} = peticion.body;
@@ -108,6 +131,8 @@ function getUsuario (peticion = request, respuesta = response) {
     ).catch(() => internalServerError(respuesta)
     );
 }
+
+//Finalmente, se exportan las tres funciones
 
 module.exports = {
     crearUsuario,

@@ -1,5 +1,13 @@
+/**
+ * Se importa la configuración de conexión a la base de datos de MySQL y se definen las funciones readUsuario y buscarUsuarioPorEmail. 
+ * Ambas ejecutan una consulta a la base de datos y devuelven una promesa.
+ */
+
 const { conexion } = require('../database-config');
 const Usuario = require('../../modelo/usuario');
+
+//La función readUsuario ejecuta una consulta para obtener un usuario a partir de su id.
+// Devuelve una promesa que resuelve con un array de objetos Usuario que coinciden con el id dado
 
 function readUsuario(idUsuario){
     let query = `SELECT username, email from usuarios WHERE id = ?`;
@@ -22,6 +30,11 @@ function readUsuario(idUsuario){
     })
 }
 
+//La función buscarUsuarioPorEmail lanza una consulta para obtener un usuario a partir de su email. 
+// Retorna una promesa que resuelve con un objeto Usuario si encuentra dicho email.
+// Si lo encuentra, va a devolver el usuario con todos sus datos en la BD.
+//
+
 function buscarUsuarioPorEmail(usuario){
     let query = `SELECT id, username, email, password from usuarios where email=?`
     return new Promise ((resolve, reject ) => {
@@ -39,12 +52,12 @@ function buscarUsuarioPorEmail(usuario){
             } 
             })    
         } catch (error) {
-            console.log('estoy en el catch');
              reject (error);
         }
     })
 }
 
+// Exportamos ambas funciones
 module.exports = {
     readUsuario,
     buscarUsuarioPorEmail

@@ -1,3 +1,7 @@
+/**
+ * Este script maneja el selector principal de la vista /home
+ */
+
 (function HOME_SELECTOR (){
 
   const SELECTOR_CONSORCIO = document.getElementById('idConsorcio');
