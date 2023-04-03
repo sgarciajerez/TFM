@@ -81,7 +81,7 @@ function crearListado (array, idConsorcio){
       inputConsorcio.value=idConsorcio;
 
       //el input type submit
-      boton.value = 'Ver más detalles';
+      boton.value = 'Ver';
       boton.type = 'submit';
       boton.className ='boton_animado';
       

@@ -64,11 +64,11 @@
         tabla.appendChild(FilaTarjeta);  //agregar a la tabla cada fila
     }
         
-        function addInfoACelda(texto, Fila){
-            const celda = document.createElement("td");
-            celda.innerText = texto + ' €';
-            Fila.appendChild(celda);
-        }
+    function addInfoACelda(texto, Fila){
+        const celda = document.createElement("td");
+        celda.innerText = texto + ' €';
+        Fila.appendChild(celda);
+    }
         
     
 })()
