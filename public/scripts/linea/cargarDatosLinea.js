@@ -1,3 +1,10 @@
+/**
+ * Este código carga los datos de una línea y obtiene los parámetros de la URL
+ * Después, llama a rellenarDatosBasicosLinea() para hacer una petición a la API del Consorcio para obtener los datos de la línea. 
+ * Si hay respuesta, se extraen los datos y se llaman a varias funciones encargadas de pintar los datos en la web. 
+ * Si hay algún error, se muestra en consola.
+ */
+
 (function cargarDatosLinea(){
     const params = new URLSearchParams(window.location.search);
     const idConsorcio = params.get('Consorcio');
@@ -15,17 +22,18 @@
             } 
         }
         ).then((responseJson) => {
-            let data_text = [
+            let data_text = [ //creamos un array con texto
                 nombre = responseJson.nombre,
                 operador = responseJson.operadores,
                 pmr = responseJson.pmr,
                 observacionesModoTransporte = responseJson.observacionesModoTransporte
             ]
-            let images = [
+            let images = [  //un array con urls de imágenes
                 termometroIda = responseJson.termometroIda,
                 termometroVuelta = responseJson.termometroVuelta,
             ]
 
+            //funciones encargadas de pintar la información
             introducirNombreLinea(data_text[0]);
             introducirOperadorLinea(data_text[1]);
             introducirPMRLinea(data_text[2]);
@@ -59,6 +67,7 @@
         introducirTexto(contenedor, data_text);
     }
 
+    //para ahorrar código, se crea esta función que introduce el texto en mayúscula
     function introducirTexto(contenedor, data_text){
         contenedor.innerHTML = data_text.toUpperCase();
     }

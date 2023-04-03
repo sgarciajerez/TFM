@@ -1,9 +1,11 @@
+//Obtenemos los parametros de la URL /horario
+
 const params = new URLSearchParams(window.location.search);
 const Consorcio = params.get('Consorcio');
 const Linea = params.get('Linea');
 
+//Mandamos la petición a la API y creamos una tabla si obtenemos datos
 function pedirHorarioAPI(){
-
     fetch(`http://api.ctan.es/v1/Consorcios/${Consorcio}/horarios_lineas?dia=&frecuencia=&lang=ES&linea=${Linea}&mes=`).then(
         (response)=>{
             if(response.ok){
@@ -16,6 +18,7 @@ function pedirHorarioAPI(){
         }).catch((error) => console.log(error));
 }
 
+
 function crearTablaHorarios(data){
 
     // Obtener la tabla HTML
@@ -27,11 +30,11 @@ function crearTablaHorarios(data){
     const bloquesIda = data.planificadores[0].bloquesIda;
     // Agregar las celdas del encabezado
     bloquesIda.forEach((bloque) => {
-            const encabezadoCelda = document.createElement("th");
-            encabezadoCelda.innerText = bloque.nombre;
-            if(bloque.nombre!=='Observaciones'){ //para eliminar la columna de Observaciones de la tabla
-                encabezadoFila.appendChild(encabezadoCelda);
-            }
+        const encabezadoCelda = document.createElement("th");
+        encabezadoCelda.innerText = bloque.nombre;
+        if(bloque.nombre!=='Observaciones'){ //para eliminar la columna de Observaciones de la tabla
+            encabezadoFila.appendChild(encabezadoCelda);
+        }
     });
 
     // Agregar la fila del encabezado a la tabla

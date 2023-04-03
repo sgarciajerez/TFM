@@ -1,3 +1,9 @@
+/**
+ * Esta función realiza una petición a la API propia y se conecta con el back para comprobar los datos del usuario
+ * En concreto, va a comprobar si el usuario ha iniciado sesión con el token de autenticación
+ * Se le manda el token con el header. Si ha iniciado sesión, se ejecuta la función guardarLinea.
+ * */
+
 (function pulsarBoton(){
     const boton = document.getElementById('boton_guardar');
     boton.addEventListener('click', enviarToken);
@@ -13,7 +19,7 @@ function enviarToken(){
     })
     .then(response => {
         if (response.ok) {
-            guardarLinea(token);
+            guardarLinea();
         } else{
             alert('Debes iniciar sesión para realizar esta acción');
         }
@@ -23,6 +29,7 @@ function enviarToken(){
     });
 }
 
+// Esta función va a mandar una petición al back con el token, el id del Consorcio y el id de la Linea que se quieren guardar 
 function guardarLinea(){
     const token = localStorage.getItem('token');
     const params = new URLSearchParams(window.location.search);
@@ -53,7 +60,7 @@ function guardarLinea(){
             //no nos importa si la respuesta es Ok o no
             //el error 400 también es aclarativo
     }).then(data => {
-        alert(data.mensaje);
+        alert(data.mensaje); //mostramos el mensaje que nos manda el back
     }).catch(error=>{
         console.log(error);
     })

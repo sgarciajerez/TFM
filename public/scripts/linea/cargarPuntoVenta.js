@@ -1,3 +1,7 @@
+//Esta función carga las tarifas de cada zona en función del consorcio que se pase por la URL
+//Obtiene los datos de la URL y realiza la petición
+//Luego, crea una tabla con esos datos
+
 (function cargarPuntoVenta(){
     
     const params = new URLSearchParams(window.location.search);
@@ -15,7 +19,6 @@
         }
         ).then((data) => {
             crearTablaPrecios(data);
-            console.log(data);
         }).catch((error) => {
         console.log(error)
         });

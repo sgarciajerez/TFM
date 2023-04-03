@@ -1,3 +1,7 @@
+/**
+ * Este código va a cargar las lineas de los usuarios mandando una petición al back
+ */
+
 (function obtenerLineasUsuario(){
     const token = localStorage.getItem('token');
     console.log(token);
@@ -38,7 +42,7 @@ function procesarLineasUsuario(array){
 }
 
 
-//la función hace la petición a la API de los autobuses y retorna el nombre de la línea
+// la función hace la petición a la API de los autobuses y retorna el nombre de la línea
 function obtenerDatosLinea (idConsorcio, idLinea){
     return new Promise((resolve, reject) => {
         fetch(`http://api.ctan.es/v1/Consorcios/${idConsorcio}/lineas/${idLinea}`)
@@ -57,7 +61,8 @@ function obtenerDatosLinea (idConsorcio, idLinea){
     });
 }
 
-//esta función crea el elemento visible del HTML en formato formulario con método POST
+// esta función crea el elemento visible del HTML en formato formulario con método POST
+// Va a crear un <li> que va a tener un <p> y un <form>
 function pintarNombreLinea(nombreLinea, idConsorcio, idLinea){
     const listado = document.getElementById('listado_lineas');
     const elementoLista = document.createElement('li');
@@ -90,6 +95,7 @@ function pintarNombreLinea(nombreLinea, idConsorcio, idLinea){
     listado.appendChild(elementoLista);
 }
 
+//Si no hay lineas almacenadas, crea este párrafo nuetro
 function mostrarError(){
     const listado = document.getElementById('listado_lineas');
     const elementoLista = document.createElement('li');

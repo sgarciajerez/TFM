@@ -1,3 +1,9 @@
+/**
+ * Este código nos permite saber si el usuario ha iniciado sesión mandando el token
+ * Si ha iniciado sesión, cargaremos su información a través de su id. Si no, lo redireccionamos al login
+ * También añade un código para cerrar sesión cuando el usuario pinche el botón 'cerrar sesión'
+ *  */
+
 (function obtenerIdUsuario(){
     const token = localStorage.getItem('token');
     console.log(token);
@@ -10,18 +16,16 @@
         if (response.ok) {
             return response.json();
         } else{
-            redireccionarALogin();
+            redireccionarALogin(); //Si no recibe el token, la página redirecciona al login
             throw new Error('Error al obtener los datos del usuario');
         }
     })
     .then(data => {
-        let idUsuario = data.id;
+        let idUsuario = data.id; //leemos el json para obtener el id del usuario
         cargarInfoUsuario(idUsuario);
-    // aquí puedes procesar los datos del usuario
     })
     .catch(error => {
         console.log(error);
-      // manejar el error
     });
 })()
 
@@ -39,7 +43,7 @@ function cargarInfoUsuario(id){
         body: JSON.stringify(datos)
     };
     //realizamos la peticion
-    fetch("/usuarios/usuario", peticion)
+    fetch("/usuarios/usuario", peticion) //mandamos la petición al back
     .then(response => {
         if (!response.ok) {
             throw new Error('Error al obtener los datos del usuario');
@@ -55,13 +59,14 @@ function cargarInfoUsuario(id){
     });
 }
 
+//Mostramos en el HTML la información obtenida en la petición al back
 function pintarInfoUsuario(data){
     const username = document.querySelectorAll('.username_content');
     const email = document.querySelectorAll('.email_content');
     username.forEach(element =>{
         element.innerHTML = data[0].username;
     })
-    
+
     email.forEach(element =>{
         element.innerHTML = data[0].email;
     })
@@ -69,11 +74,10 @@ function pintarInfoUsuario(data){
 
 
 //código para cerrar Sesión
-
 (function cerrarSesion(){
     const boton = document.getElementById('cerrar_sesion');
     boton.addEventListener('click', () =>{
-        localStorage.removeItem('token');
-        window.location.href='/home';
+        localStorage.removeItem('token'); //borramos el token
+        window.location.href='/home'; //redirigimos al home
     })
 })()
