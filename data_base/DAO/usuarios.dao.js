@@ -45,7 +45,6 @@ function buscarUsuarioPorEmail(usuario){
             } if (result.length > 0) {
                 const usuarioBD = new Usuario (result[0]['username'], result[0]['email'], result[0]['password']);
                 usuarioBD.id = result[0]['id']
-                console.log(usuarioBD);
                 resolve(usuarioBD);
             } else {
                 reject();

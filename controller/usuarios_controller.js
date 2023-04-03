@@ -9,7 +9,8 @@ const Usuario = require('../modelo/usuario');
 const {validationResult} = require('express-validator');
 const {readUsuario, buscarUsuarioPorEmail} = require('../data_base/DAO/usuarios.dao');
 const  {crearJWT}= require('../helpers/jwt.helper');
-const {internalServerError} = require ('../helpers/utility.helper');
+const {internalServerError, encrypt, compararEncrypt} = require ('../helpers/utility.helper');
+
 
 // La función login maneja una solicitud POST para autenticar a un usuario registrado en la BD. 
 // La función extrae el email y password de la solicitud HTTP para hacer la búsqueda
@@ -28,7 +29,7 @@ function login (peticion = request, respuesta = response) {
 
     buscarUsuarioPorEmail (usuario).then(
         (usuarioValidado) => {
-            if (password === usuarioValidado.password){
+            if (compararEncrypt(password, usuarioValidado.password)){
                 crearJWT(usuarioValidado.id).then((token) => {
                     respuesta.status(202).json({
                         msg: "Login realizado con éxito",
@@ -67,7 +68,7 @@ function crearUsuario (peticion = request, respuesta = response) {
     
     //Extraemos info del body
     const {username, email, password} = peticion.body;
-    const usuario = new Usuario (username, email, password);
+    const usuario = new Usuario (username, email, encrypt(password));
 
     try {
         comprobarSiExisteEmail(usuario);
