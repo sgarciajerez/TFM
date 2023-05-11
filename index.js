@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /**
 Leemos el puerto desde las variables de entorno .env.
 */
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 /**
 Configuramos el motor de vistas de handlebars y le indicamos el layout por defecto.
